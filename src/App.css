@@ -1,0 +1,199 @@
+/* Custom scrollbar styles */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Global scrollbar hiding */
+*::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    font-family: 'VT323', monospace;
+}
+
+/* Custom selection colors - pixel theme */
+::selection {
+    background-color: #00FF00;
+    color: #000000;
+    text-shadow: none;
+}
+
+/* Pixel art typography */
+.font-pixel {
+    font-family: 'VT323', monospace;
+    letter-spacing: 0.1em;
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: unset;
+}
+
+/* Pixel perfect images */
+.pixel-perfect img {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+/* 8-bit style hover effects */
+.pixel-hover {
+    transition: all 0.1s steps(4, end);
+}
+
+.pixel-hover:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2) contrast(1.1);
+    box-shadow: 0 0 0 2px #00ff00, 0 0 20px #00ff0040;
+}
+
+/* CRT scanlines effect */
+.crt-scanlines {
+    position: relative;
+}
+
+.crt-scanlines::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 255, 0, 0.05) 2px,
+        rgba(0, 255, 0, 0.05) 4px
+    );
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Pixel borders */
+.pixel-border-1 {
+    border: 1px solid;
+    border-image: url("data:image/svg+xml,%3csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 0h12v12H0z' fill='none' stroke='%23ffffff' stroke-width='1'/%3e%3c/svg%3e") 1;
+}
+
+.pixel-border-2 {
+    border: 2px solid;
+    border-image: url("data:image/svg+xml,%3csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 0h12v12H0z' fill='none' stroke='%23ffffff' stroke-width='2'/%3e%3c/svg%3e") 2;
+}
+
+/* Glitch text effect */
+.glitch-text {
+    position: relative;
+    color: #ffffff;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch-text::before {
+    animation: glitch-1 0.5s infinite;
+    color: #ff0040;
+    z-index: -1;
+}
+
+.glitch-text::after {
+    animation: glitch-2 0.5s infinite;
+    color: #00ffff;
+    z-index: -2;
+}
+
+@keyframes glitch-1 {
+    0%, 14%, 15%, 49%, 50%, 99%, 100% {
+        transform: translate(0, 0);
+    }
+    1%, 13% {
+        transform: translate(-1px, 0);
+    }
+    16%, 48% {
+        transform: translate(1px, 0);
+    }
+}
+
+@keyframes glitch-2 {
+    0%, 20%, 21%, 62%, 63%, 99%, 100% {
+        transform: translate(0, 0);
+    }
+    2%, 19% {
+        transform: translate(1px, 0);
+    }
+    22%, 61% {
+        transform: translate(-1px, 0);
+    }
+}
+
+/* 8-bit button styles */
+.btn-8bit {
+    font-family: 'VT323', monospace;
+    background: #000;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.1s steps(2, end);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.btn-8bit:hover {
+    background: #fff;
+    color: #000;
+    box-shadow: 0 0 0 2px #00ff00, 0 0 10px #00ff0080;
+}
+
+.btn-8bit:active {
+    transform: translate(1px, 1px);
+}
+
+/* Retro grid background */
+.retro-grid {
+    background-image: 
+        linear-gradient(rgba(0, 255, 0, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 0, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* Pixelated noise overlay */
+.pixel-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='pixelNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23pixelNoise)' opacity='0.02'/%3E%3C/svg%3E");
+    image-rendering: pixelated;
+}
+
+/* Terminal-style text cursor */
+.terminal-cursor::after {
+    content: '█';
+    animation: blink 1s infinite;
+    color: #00ff00;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
