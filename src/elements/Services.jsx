@@ -275,9 +275,6 @@ function Services() {
           })}
         </div>
       </section>
-
-      {/* Footer */}
-      <Footer />
     </div>
   );
 }
