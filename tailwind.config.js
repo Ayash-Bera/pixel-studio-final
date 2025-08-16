@@ -23,9 +23,9 @@ export default {
         serif: ["VT323", "monospace"],
       },
       fontSize: {
-        "pixel-xs": ["20px", "20px"],
-        "pixel-sm": ["24px", "24px"],
-        "pixel-base": ["28px", "28px"],
+        "pixel-xs": ["18px", "18px"],
+        "pixel-sm": ["20px", "20px"],
+        "pixel-base": ["24px", "24px"],
         "pixel-lg": ["30px", "30px"],
         "pixel-xl": ["32px", "32px"],
         "pixel-2xl": ["40px", "40px"],

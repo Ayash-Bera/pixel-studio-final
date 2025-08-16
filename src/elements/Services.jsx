@@ -47,6 +47,10 @@ function Services() {
 
   const faqs = [
     {
+      q: "Can I rent the studio without a photographer?",
+      a: "Yes, our fully-equipped studio is available for rent. Contact us for exact rates and vacancies ",
+    },
+    {
       q: "How long does a photoshoot take?",
       a: "Typical photoshoots range from 2-6 hours depending on the scope and number of shots required. Complex projects may require multiple days.",
     },
@@ -57,10 +61,6 @@ function Services() {
     {
       q: "How much time it takes to edit?",
       a: "Standard editing takes 5-10 business days. Rush delivery (2-3 days) is available with an additional fee. Complex retouching may require additional time.",
-    },
-    {
-      q: "Can I rent the studio without a photographer?",
-      a: "Yes, our fully-equipped studio is available for rent. Half-day and full-day rates include basic lighting equipment and backdrops.",
     },
     {
       q: "What type of files will I receive?",
@@ -87,14 +87,14 @@ function Services() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="relative z-10 text-center px-8"
         >
-          <p className="text-white/60 text-sm tracking-wider mb-4">PREMIUM PHOTOGRAPHY</p>
+          <p className="text-white/60 text-sm tracking-wider mb-4">Pixel Photography Studios & Academy  </p>
           
           <h1 className="text-[clamp(3rem,8vw,8rem)] font-black leading-[0.9] text-modera-yellow mb-8">
             SERVICES
           </h1>
           
           <p className="text-white/80 text-lg max-w-2xl mx-auto mb-12">
-            High-end photography solutions for brands that demand excellence.
+            High-end photography solutions for brands and individuals that demand excellence.
             From concept to final delivery, we craft visual stories that captivate.
           </p>
 
@@ -142,12 +142,14 @@ function Services() {
             <br />
             DETAIL
           </h2>
-          <p className="text-white/60 pixel-xl max-w-md">
+          <p className="text-white/60 text-pixel-xs max-w-md">
             Our photography is a powerful tool that enhances a brand's visual
             identity, builds its reputation, and attracts attention. Whether you
             need images for catalogs, websites, social media, or advertising
             campaigns, we can craft visual content that sets your business apart
             from the competition.
+            <br/>
+            <br/> To us photography is not business it's art 
           </p>
         </motion.div>
 
@@ -155,19 +157,19 @@ function Services() {
         <div className="grid lg:grid-cols-3 gap-8 mt-16">
           {[
             {
-              img: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600",
-              title: "Interior<br />Photography",
-              text: "Interior photography is more than just capturing a space—it's about conveying atmosphere, the play of light and shadow, and the interaction of textures and materials. We focus on finding the balance of natural and artificial lighting to create depth and dimension.",
+              img:"https://i.postimg.cc/zXP0Hjwg/01-REAR-BALLET.jpg", 
+              title: "Light<br />Painting",
+              text: "Light painting is a long-exposure photography technique where you use a light source to 'draw' in a dark scene. The camera's open shutter records the path of the moving light, creating luminous streaks and designs in the final image. You need a camera with a long exposure setting, a tripod, and a dark space.",
             },
             {
-              img: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600",
-              title: "Furniture<br />Photography",
-              text: "For furniture to look stylish, well-sized, and tactile in photos, it needs more than just good placement in a frame. We create shoots that highlight materials, textures, and forms, making products visually appealing to customers.",
+              img:"https://i.postimg.cc/tCTJsCJT/516376408-24497341953234892-2129970993642215923-n.jpg",
+              title: "Still<br />Life",
+              text: "Still life photography captures an arrangement of inanimate objects. Control every element: position the subjects, shape the light, and arrange the scene. Your goal is to evoke a specific mood through composition and texture. Master this form by focusing on deliberate arrangement and technical execution.",
             },
             {
-              img: "https://images.unsplash.com/photo-1524634126442-357e0eac3c14?w=600",
-              title: "Lighting<br />Photography",
-              text: "Lighting is a key element that transforms how a space is perceived. From warm accents to allow customers to see and feel the nature of light—its glow, diffusion, and warmth—we capture the warmth and coolness of different lighting tones.",
+              img: "https://i.postimg.cc/SN5fxKqL/KING-WITH-FROG-TOSS.jpg",
+              title: "Outdoor<br />Shoots",
+              text: "We offer professional outdoor photography sessions tailored to your needs. Our team organizes on-site logistics and provides expert guidance to capture stunning, area-specific photos that reflect the unique beauty of the chosen location.",
             },
           ].map((card, i) => (
             <motion.div
@@ -193,12 +195,9 @@ function Services() {
                 className="text-white text-lg font-medium mb-2"
                 dangerouslySetInnerHTML={{ __html: card.title }}
               />
-              <p className="text-white/50 text-sm leading-relaxed mb-4">
+              <p className="text-white/50 text-pixel-xs leading-relaxed mb-4">
                 {card.text}
               </p>
-              <button className="text-white/80 text-sm border-b border-white/20 pb-1 hover:text-modera-yellow hover:border-modera-yellow transition-all">
-                EXPLORE MORE
-              </button>
             </motion.div>
           ))}
         </div>
@@ -211,10 +210,10 @@ function Services() {
           viewport={{ once: true }}
           className="mt-16 pt-8 border-t border-white/10"
         >
-          <p className="text-white/60 text-sm mb-2">▶ PRICING</p>
-          <p className="text-white/80 text-sm">
+          <p className="text-white/60 text-pixel-xs mb-2">▶ PRICING</p>
+          <p className="text-white/80 text-pixel-xs">
             Pricing depends on the scope of work, the number of objects, and the
-            type of photography. Contact us for an exact quote.
+            type of photography. Contact us for an exact quote. <br /> For more details about upcoming workshops please check our events page. 
           </p>
         </motion.div>
       </section>
@@ -222,7 +221,7 @@ function Services() {
       {/* ===================== FAQ Section ===================== */}
       <section className="px-8 lg:px-20 py-20 bg-black">
         <div className="mb-12">
-          <p className="text-white/60 text-sm mb-4">▶ FAQ</p>
+          <p className="text-white/60 text-pixel-xs mb-4">▶ FAQ</p>
           <h2 className="text-modera-yellow text-[clamp(2rem,5vw,4rem)] font-bold leading-tight">
             FREQUENTLY
             <br />
@@ -232,7 +231,7 @@ function Services() {
           </h2>
         </div>
 
-        <div className="space-y-4 max-w-3xl">
+        <div className="space-y-4 max-w-3xl text-pixel-sm">
           {faqs.map((faq, index) => {
             const open = expandedFaq === index;
             return (
@@ -265,7 +264,7 @@ function Services() {
                   className="overflow-hidden"
                 >
                   {open && (
-                    <p className="text-white/50 text-md mt-4 ml-12 leading-relaxed">
+                    <p className="text-white/50 text-pixel-sm mt-4 ml-12 leading-relaxed">
                       {faq.a}
                     </p>
                   )}

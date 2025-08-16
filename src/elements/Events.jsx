@@ -41,185 +41,67 @@ function EventsWorkshops() {
 
   const upcomingEvents = [
     {
-      id: 'interior-masterclass',
-      type: 'MASTERCLASS',
-      category: 'masterclass',
-      title: 'INTERIOR PHOTOGRAPHY',
-      subtitle: 'Light & Shadow Mastery',
-      date: 'MAR 15, 2025',
-      time: '10:00 - 18:00',
-      price: '€750',
-      spots: '8/12',
-      image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=400&fit=crop',
-      shortDesc: 'Master the art of capturing architectural spaces with natural and artificial lighting',
-      instructor: 'Oliver Hart',
-      level: 'Intermediate to Advanced',
-      location: 'Modera Studio, Amsterdam',
-      highlights: [
-        'Advanced lighting techniques for interiors',
-        'Working with mixed light sources',
-        'Tethered shooting workflow',
-        'Post-processing for architectural photography',
-        'Client presentation techniques'
-      ],
-      includes: [
-        'Lunch & refreshments',
-        'Course materials',
-        'Certificate of completion',
-        'Access to studio equipment',
-        '1-on-1 portfolio review'
-      ]
-    },
-    {
-      id: 'product-workshop',
-      type: 'WORKSHOP',
-      category: 'workshop',
-      title: 'PRODUCT PHOTOGRAPHY',
-      subtitle: 'Commercial Excellence',
-      date: 'MAR 22, 2025',
-      time: '09:00 - 17:00',
-      price: '€650',
-      spots: '10/15',
-      image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&h=400&fit=crop',
-      shortDesc: 'Learn professional product photography for e-commerce and advertising',
-      instructor: 'Sarah Chen',
-      level: 'All Levels',
-      location: 'Pixel Studio, Amsterdam',
-      highlights: [
-        'Studio lighting setups',
-        'Product styling techniques',
-        'Macro photography details',
-        'Reflective surface photography',
-        'Composite imaging'
-      ],
-      includes: [
-        'Professional equipment use',
-        'Props and backgrounds',
-        'Editing workshop',
-        'Networking lunch',
-        'Resource guide PDF'
-      ]
-    },
-    {
-      id: 'lighting-intensive',
-      type: 'WORKSHOP',
-      category: 'workshop',
-      title: 'LIGHTING INTENSIVE',
-      subtitle: 'Studio & Location',
-      date: 'APR 5-6, 2025',
-      time: '10:00 - 17:00',
-      price: '€1,250',
-      spots: '6/8',
-      image: 'https://images.unsplash.com/photo-1524634126442-357e0eac3c14?w=600&h=400&fit=crop',
-      shortDesc: 'Two-day intensive workshop on advanced lighting for commercial photography',
-      instructor: 'Marcus Weber',
-      level: 'Advanced',
-      location: 'Modera Studio, Amsterdam',
-      highlights: [
-        'Complex multi-light setups',
-        'Color theory in lighting',
-        'Lighting for mood and atmosphere',
-        'Location lighting challenges',
-        'High-speed sync techniques'
-      ],
-      includes: [
-        '2 days of training',
-        'All meals included',
-        'Equipment rental',
-        'Digital workbook',
-        'Follow-up online session'
-      ]
-    },
-    {
-      id: 'furniture-showcase',
-      type: 'EXHIBITION',
-      category: 'event',
-      title: 'FURNITURE SHOWCASE',
-      subtitle: 'Design Photography Exhibition',
-      date: 'APR 12-26, 2025',
-      time: 'Opening: 18:00',
-      price: 'FREE',
-      spots: 'Open',
-      image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop',
-      shortDesc: 'Exhibition featuring contemporary furniture photography by studio artists',
-      instructor: 'Various Artists',
-      level: 'Public Event',
-      location: 'Modera Gallery Space',
-      highlights: [
-        'Works by 12 photographers',
-        'Live artist talks',
-        'Opening night reception',
-        'Guided tours available',
-        'Print sales & auctions'
-      ],
-      includes: [
-        'Free admission',
-        'Exhibition catalog',
-        'Artist meet & greet',
-        'Wine reception (opening)',
-        'Photography allowed'
-      ]
-    },
-    {
-      id: 'video-production',
-      type: 'MASTERCLASS',
-      category: 'masterclass',
-      title: 'VIDEO PRODUCTION',
-      subtitle: 'Cinematic Storytelling',
-      date: 'APR 19, 2025',
-      time: '09:00 - 18:00',
-      price: '€850',
-      spots: '5/10',
-      image: 'https://images.unsplash.com/photo-1606986628025-35d57e735ae0?w=600&h=400&fit=crop',
-      shortDesc: 'From concept to final cut - create compelling video content for brands',
-      instructor: 'James Morrison',
-      level: 'Intermediate',
-      location: 'Modera Studio, Amsterdam',
-      highlights: [
-        'Storyboarding and pre-production',
-        'Camera movement techniques',
-        'Audio recording basics',
-        'Color grading workflow',
-        'Editing in Premiere/Resolve'
-      ],
-      includes: [
-        'Camera equipment',
-        'Editing stations',
-        'Lunch & snacks',
-        'Project files',
-        '30-day support'
-      ]
-    },
-    {
-      id: 'creative-retreat',
-      type: 'RETREAT',
-      category: 'event',
-      title: 'CREATIVE RETREAT',
-      subtitle: 'Photography & Mindfulness',
-      date: 'MAY 2-4, 2025',
-      time: '3 Days',
-      price: '€1,850',
-      spots: '12/20',
-      image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600&h=400&fit=crop',
-      shortDesc: 'Three-day creative retreat combining photography with artistic exploration',
-      instructor: 'Multiple Instructors',
-      level: 'All Levels',
-      location: 'Dutch Countryside',
-      highlights: [
-        'Daily photography sessions',
-        'Creative workshops',
-        'Portfolio reviews',
-        'Mindfulness practices',
-        'Group exhibitions'
-      ],
-      includes: [
-        'Accommodation (2 nights)',
-        'All meals',
-        'Transportation',
-        'Workshop materials',
-        'Printed portfolio book'
-      ]
-    }
+    id: 'mangalajodi-birding-tour',
+    type: 'PHOTOGRAPHY TOUR',
+    category: 'tour',
+    title: 'MANGALAJODI BIRDING',
+    subtitle: 'Photography Tour',
+    date: 'FEB 6-8, 2026',
+    time: '3 Days / 3 Nights',
+    price: '₹15,000',
+    spots: 'Limited Seats',
+    image: 'https://i.postimg.cc/pTCVdgtz/516759676-24494555006846920-1523019678246178138-n.jpg', // Keep black as requested - you can update this later
+    shortDesc: 'Professional birding photography tour to Mangalajodi with 6 safaris over 3 days',
+    instructor: 'Arindam Bera,Lopamudra Bera',
+    level: 'All Levels',
+    location: 'Mangalajodi (Khurda Rd to Khurda Rd)',
+    highlights: [
+      '6 safari sessions across 3 days',
+      'Expert guidance on bird photography',
+      'Capture diverse wetland bird species',
+      'Professional photography techniques',
+      'Small group for personalized attention'
+    ],
+    includes: [
+      '3 nights accommodation',
+      '6 safari sessions',
+      'Transportation (Khurda Rd to Khurda Rd)',
+      'Professional mentor guidance',
+      'Photography tips and techniques'
+    ]
+  },
+  {
+  id: 'desert-calling-rajasthan',
+  type: 'PHOTOGRAPHY WORKSHOP',
+  category: 'workshop',
+  title: 'DESERT CALLING',
+  subtitle: 'Rajasthan Photography Workshop',
+  date: 'OCT 31 - NOV 5, 2025',
+  time: '6 Days / 5 Nights',
+  price: '₹36,000',
+  spots: '2 Spots Left',
+  image: 'https://i.postimg.cc/bJFwtg8s/istockphoto-1224021113-612x612.jpg', 
+  shortDesc: 'Six fun-filled days in Rajasthan with camel fair, desert photography, and desert camp stay',
+  instructor: 'Arindam Bera, Lopamudra Bera',
+  level: 'All Levels',
+  location: 'Pushkar - Jodhpur - Jaisalmer',
+  highlights: [
+    'Camel fair photography experience',
+    'Desert landscape and camp photography',
+    'Street photography in historic cities',
+    'Travel and landscape photography techniques',
+    'World in Focus photography workshop',
+    'Professional desert camping experience'
+  ],
+  includes: [
+    '5 nights accommodation (twin sharing)',
+    'Transportation (Kolkata to Kolkata)',
+    'Desert camp stay experience',
+    'All photography workshop sessions',
+    'Professional guidance and mentoring',
+    'Access to camel fair events'
+  ]
+  }
   ];
 
   // Filter events
@@ -245,17 +127,17 @@ function EventsWorkshops() {
         viewport={{ once: true }}
         className="mb-12"
       >
-        <p className="text-white/60 text-xs tracking-wider mb-4">▶ UPCOMING</p>
+        <p className="text-white/60 text-pixel-sm tracking-wider mb-4">▶ UPCOMING</p>
         <h1 className="text-modera-yellow text-[clamp(3rem,8vw,8rem)] font-black leading-[0.9] mb-8">
           EVENTS &<br />
           WORKSHOPS
         </h1>
-        <p className="text-white/60 text-sm max-w-2xl mb-8">
+        <p className="text-white/60 text-pixel-sm max-w-2xl mb-8">
           Join our exclusive masterclasses and workshops designed for photographers and creatives 
           who want to elevate their craft. Learn from industry professionals in our state-of-the-art studio.
         </p>
 
-        {/* Filter Buttons */}
+        {/* Filter Buttons
         <div className="flex flex-wrap gap-3">
           {[
             { value: 'all', label: 'ALL EVENTS' },
@@ -266,7 +148,7 @@ function EventsWorkshops() {
             <button
               key={filterOption.value}
               onClick={() => setFilter(filterOption.value)}
-              className={`px-4 py-2 text-xs font-medium transition-all ${
+              className={`px-4 py-2 text-pixel-xs font-medium transition-all ${
                 filter === filterOption.value
                   ? 'bg-modera-yellow text-black'
                   : 'bg-zinc-900 text-white/60 hover:bg-zinc-800 hover:text-white'
@@ -275,7 +157,7 @@ function EventsWorkshops() {
               {filterOption.label}
             </button>
           ))}
-        </div>
+        </div> */}
       </motion.div>
 
       {/* Events Grid */}
@@ -302,52 +184,52 @@ function EventsWorkshops() {
                 
                 {/* Event Type Badge */}
                 <div className="absolute top-4 left-4">
-                  <span className="bg-modera-yellow text-black text-xs font-bold px-2 py-1">
+                  <span className="bg-modera-yellow text-black text-pixel-xs font-bold px-2 py-1">
                     {event.type}
                   </span>
                 </div>
 
                 {/* Price Badge */}
                 <div className="absolute top-4 right-4">
-                  <span className="bg-black/60 text-white text-sm font-bold px-3 py-1 backdrop-blur-sm">
+                  <span className="bg-black/60 text-white text-pixel-sm font-bold px-3 py-1 backdrop-blur-sm">
                     {event.price}
                   </span>
                 </div>
 
                 {/* Date at bottom */}
                 <div className="absolute bottom-4 left-4">
-                  <p className="text-white/60 text-xs">{event.date}</p>
-                  <p className="text-white text-xs">{event.time}</p>
+                  <p className="text-white/60 text-pixel-sm">{event.date}</p>
+                  <p className="text-white text-pixel-sm">{event.time}</p>
                 </div>
               </div>
 
               {/* Event Details */}
               <div className="p-6">
-                <h3 className="text-white text-lg font-bold mb-1">
+                <h3 className="text-white text-pixel-xl font-bold mb-1">
                   {event.title}
                 </h3>
                 <p className="text-modera-yellow text-sm mb-3">{event.subtitle}</p>
                 
-                <p className="text-white/60 text-sm mb-4 line-clamp-2">
+                <p className="text-white/60 text-pixel-sm mb-4 line-clamp-2">
                   {event.shortDesc}
                 </p>
 
                 {/* Event Meta */}
                 <div className="flex items-center justify-between pt-4 border-t border-white/10">
                   <div>
-                    <p className="text-white/40 text-xs mb-1">INSTRUCTOR</p>
-                    <p className="text-white text-sm">{event.instructor}</p>
+                    <p className="text-white/40 text-pixel-xs mb-1">INSTRUCTOR</p>
+                    <p className="text-white text-pixel-base">{event.instructor}</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-white/40 text-xs mb-1">AVAILABILITY</p>
-                    <p className={`text-sm font-medium ${getStatusColor(event.spots)}`}>
-                      {event.spots === 'Open' ? 'OPEN' : `${event.spots} SPOTS`}
+                    <p className="text-white/40 text-pixel-xs mb-1">AVAILABILITY</p>
+                    <p className={`text-pixel-sm font-medium ${getStatusColor(event.spots)}`}>
+                      {event.spots === 'Open' ? 'OPEN' : `${event.spots} `}
                     </p>
                   </div>
                 </div>
 
                 {/* Register CTA */}
-                <button className="w-full mt-4 py-2 bg-white/10 text-white text-xs font-medium hover:bg-modera-yellow hover:text-black transition-all duration-300">
+                <button className="w-full mt-4 py-2 bg-white/10 text-white text-pixel-xs font-medium hover:bg-modera-yellow hover:text-black transition-all duration-300">
                   VIEW DETAILS
                 </button>
               </div>
@@ -409,7 +291,7 @@ function EventsWorkshops() {
                   onClick={() => setActiveEvent(null)}
                   className="absolute top-4 right-4 z-10 w-8 h-8 flex items-center justify-center bg-black/60 hover:bg-black transition-colors"
                 >
-                  <span className="text-white text-xl">×</span>
+                  <span className="text-white text-pixel-xl">×</span>
                 </button>
 
                 {/* Modal Header Image */}
@@ -422,13 +304,13 @@ function EventsWorkshops() {
                   <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent" />
                   
                   <div className="absolute bottom-6 left-6 right-6">
-                    <span className="bg-modera-yellow text-black text-xs font-bold px-2 py-1">
+                    <span className="bg-modera-yellow text-black text-pixel-xs font-bold px-2 py-1">
                       {activeEvent.type}
                     </span>
                     <h2 className="text-white text-3xl font-bold mt-3">
                       {activeEvent.title}
                     </h2>
-                    <p className="text-modera-yellow text-lg mt-1">{activeEvent.subtitle}</p>
+                    <p className="text-modera-yellow text-pixel-sm mt-1">{activeEvent.subtitle}</p>
                   </div>
                 </div>
 
@@ -437,20 +319,20 @@ function EventsWorkshops() {
                   {/* Event Details Grid */}
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                     <div className="bg-black p-4">
-                      <p className="text-white/40 text-xs mb-1">DATE</p>
-                      <p className="text-white text-sm font-medium">{activeEvent.date}</p>
+                      <p className="text-white/40 text-pixel-xs mb-1">DATE</p>
+                      <p className="text-white text-pixel-sm font-medium">{activeEvent.date}</p>
                     </div>
                     <div className="bg-black p-4">
-                      <p className="text-white/40 text-xs mb-1">TIME</p>
-                      <p className="text-white text-sm font-medium">{activeEvent.time}</p>
+                      <p className="text-white/40 text-pixel-xs mb-1">TIME</p>
+                      <p className="text-white text-pixel-sm font-medium">{activeEvent.time}</p>
                     </div>
                     <div className="bg-black p-4">
-                      <p className="text-white/40 text-xs mb-1">PRICE</p>
-                      <p className="text-modera-yellow text-lg font-bold">{activeEvent.price}</p>
+                      <p className="text-white/40 text-pixel-xs mb-1">PRICE</p>
+                      <p className="text-modera-yellow text-pixel-base font-bold">{activeEvent.price}</p>
                     </div>
                     <div className="bg-black p-4">
-                      <p className="text-white/40 text-xs mb-1">SPOTS</p>
-                      <p className={`text-sm font-medium ${getStatusColor(activeEvent.spots)}`}>
+                      <p className="text-white/40 text-pixel-xs mb-1">SPOTS</p>
+                      <p className={`text-pixel-sm font-medium ${getStatusColor(activeEvent.spots)}`}>
                         {activeEvent.spots}
                       </p>
                     </div>
@@ -458,10 +340,10 @@ function EventsWorkshops() {
 
                   {/* Description */}
                   <div className="mb-8">
-                    <p className="text-white/80 text-sm leading-relaxed mb-4">
+                    <p className="text-white/80 text-pixel-sm leading-relaxed mb-4">
                       {activeEvent.shortDesc}
                     </p>
-                    <div className="grid grid-cols-2 gap-4 text-sm">
+                    <div className="grid grid-cols-2 gap-4 text-pixel-sm">
                       <div>
                         <span className="text-white/40">Instructor:</span>
                         <span className="text-white ml-2">{activeEvent.instructor}</span>
@@ -479,12 +361,12 @@ function EventsWorkshops() {
 
                   {/* What You'll Learn */}
                   <div className="mb-8">
-                    <h3 className="text-modera-yellow text-sm font-bold mb-4">WHAT YOU'LL LEARN</h3>
+                    <h3 className="text-modera-yellow text-pixel-sm font-bold mb-4">WHAT WE OFFER</h3>
                     <div className="space-y-2">
                       {activeEvent.highlights.map((highlight, i) => (
                         <div key={i} className="flex items-start gap-3">
                           <span className="text-modera-yellow mt-1">▶</span>
-                          <span className="text-white/80 text-sm">{highlight}</span>
+                          <span className="text-white/80 text-pixel-sm">{highlight}</span>
                         </div>
                       ))}
                     </div>
@@ -492,11 +374,11 @@ function EventsWorkshops() {
 
                   {/* What's Included */}
                   <div className="mb-8">
-                    <h3 className="text-modera-yellow text-sm font-bold mb-4">WHAT'S INCLUDED</h3>
+                    <h3 className="text-modera-yellow text-pixel-sm font-bold mb-4">WHAT'S INCLUDED</h3>
                     <div className="grid grid-cols-2 gap-3">
                       {activeEvent.includes.map((item, i) => (
                         <div key={i} className="bg-black p-3">
-                          <span className="text-white/60 text-xs">✓ {item}</span>
+                          <span className="text-white/60 text-pixel-xs">✓ {item}</span>
                         </div>
                       ))}
                     </div>

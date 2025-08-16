@@ -99,10 +99,10 @@ function Footer() {
       >
         <motion.p
           {...hoverFX}
-          className="text-gray-500 text-[10px] text-center items-center cursor-pointer"
+          className="text-gray-500 text-pixel-sm text-center items-center cursor-pointer"
         >
+        Made by <a className="hover:text-yellow-400" href="https://ayashbera.me/">Ayash</a> and <a className="hover:text-yellow-400" href="https://www.rudranilchowdhury.dev/">Rudranil</a> :D
         </motion.p>
-        Made by Ayash<a className="hover:text-yellow-400" href="https://ayashbera.me/">(Link)</a> and Rudranil<a className="hover:text-yellow-400" href="https://www.rudranilchowdhury.dev/">(Link)</a> :D
       </motion.div>
     </footer>
   );
