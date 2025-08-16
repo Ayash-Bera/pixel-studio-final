@@ -79,7 +79,7 @@ function Landing() {
       title: "",
       subtitle: "",
       image:
-        "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600&h=800&fit=crop",
+        "https://i.postimg.cc/k5xX021j/516517673-24494899506812470-2145086150192969692-n.jpg",
     },
   ];
 
