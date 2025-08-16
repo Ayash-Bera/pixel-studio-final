@@ -79,7 +79,7 @@ function Landing() {
       title: "",
       subtitle: "",
       image:
-        "https://i.postimg.cc/zXP0Hjwg/01-REAR-BALLET.jpg",
+        "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600&h=800&fit=crop",
     },
   ];
 
@@ -148,7 +148,7 @@ function Landing() {
         >
           {/* Left Side - Main Content */}
           <div className="flex-1">
-            <h1 className="mb-8 lg:mb-16">
+            <h1 className="mb-8 lg:mb-14">
               <span className="block text-[clamp(4rem,12vw,12rem)] font-black leading-[0.85] text-modera-yellow tracking-tighter">
                 Pixel
               </span>
@@ -158,7 +158,7 @@ function Landing() {
             </h1>
 
             <div className="max-w-sm">
-              <p className="text-white/90 text-base lg:text-lg leading-relaxed font-light">
+              <p className="text-white/90 text-pixel-base lg:text-pixel-xl leading-relaxed font-light">
                 High-end
                 <br />
                 photography studio
@@ -182,8 +182,8 @@ function Landing() {
           >
             <div className="space-y-8">
               <div>
-                <h3 className="text-white/50 text-2xl tracking-wider mb-4">
-                  Characteristics
+                <h3 className="text-white/50 text-pixel-xl tracking-wider mb-4">
+                  What We Offer 
                 </h3>
                 <ul className="space-y-3">
                   {[

@@ -55,10 +55,6 @@ function Services() {
       a: "Typical photoshoots range from 2-6 hours depending on the scope and number of shots required. Complex projects may require multiple days.",
     },
     {
-      q: "Do you offer shoots in other locations?",
-      a: "Yes, we offer on-location shoots throughout Europe. Travel expenses are calculated separately based on distance and duration.",
-    },
-    {
       q: "How much time it takes to edit?",
       a: "Standard editing takes 5-10 business days. Rush delivery (2-3 days) is available with an additional fee. Complex retouching may require additional time.",
     },

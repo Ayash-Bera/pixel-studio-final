@@ -14,7 +14,8 @@ function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-30" style={{ padding: '30px 60px 0 80px' }}>
+    <nav className="fixed top-0 left-0 right-0 z-30 
+                    px-8 pt-9 md:pl-20 md:pr-[60px] md:pt-[35px]">
       <div className="flex justify-between items-center py-6">
         {/* Logo */}
         <motion.div
@@ -24,7 +25,7 @@ function Navbar() {
         >
           <Link
             to="/"
-            className="text-white font-mono text-xs uppercase hover:text-modera-yellow transition-colors"
+            className="text-white font-mono text-pixel-xs hover:text-modera-yellow transition-colors"
           >
             Pixel Studios 
           </Link>

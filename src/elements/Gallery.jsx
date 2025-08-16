@@ -16,13 +16,12 @@ const Gallery = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <p className="text-white/60 text-xs tracking-wider mb-4">▶ VISUAL PORTFOLIO</p>
+          <p className="text-white/60 text-xs tracking-wider mb-4"></p>
           <h1 className="text-[clamp(3rem,8vw,8rem)] font-black leading-[0.9] text-modera-yellow mb-8">
             GALLERY
           </h1>
           <p className="text-white/60 text-sm max-w-2xl mx-auto">
-            A curated collection of our finest work showcasing the artistry of interior, 
-            furniture, and lighting photography
+            A curated collection of our finest work showcasing our artistry 
           </p>
         </motion.div>
 
@@ -38,29 +37,7 @@ const Gallery = () => {
           ))}
         </motion.div>
 
-        {/* Bottom Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-20 text-center"
-        >
-          <div className="grid grid-cols-3 gap-8 max-w-md mx-auto">
-            <div>
-              <p className="text-modera-yellow text-2xl font-bold">{images.length}+</p>
-              <p className="text-white/40 text-xs uppercase">Projects</p>
-            </div>
-            <div>
-              <p className="text-modera-yellow text-2xl font-bold">12</p>
-              <p className="text-white/40 text-xs uppercase">Years</p>
-            </div>
-            <div>
-              <p className="text-modera-yellow text-2xl font-bold">305+</p>
-              <p className="text-white/40 text-xs uppercase">Clients</p>
-            </div>
-          </div>
-        </motion.div>
+        
       </section>
     </div>
   );
@@ -111,7 +88,6 @@ const LazyImageCard = ({ img, index }) => {
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4">
         <h3 className="text-white text-lg font-bold">{img.title}</h3>
         <p className="text-white/80 text-sm mt-1">{img.photographer}</p>
-        <p className="text-white/60 text-xs mt-2">High Resolution Available</p>
       </div>
     </motion.div>
   );

@@ -37,13 +37,15 @@ function Footer() {
             ),
           },
           {
-            title: "Creative Sphere",
+            title: "Contact us:",
             content: (
               <motion.p
                 {...hoverFX}
-                className="text-sm font-medium uppercase text-gray-300 cursor-pointer"
+                className="text-pixel-base text-pixel-base  text-gray-300 cursor-pointer"
               >
-                UX/UI Design
+                +91 9123809082 <br/>
+                <br/>
+                pixelphotoexhibition@gmail.com
               </motion.p>
             ),
           },
@@ -59,7 +61,7 @@ function Footer() {
                   <motion.p
                     key={idx}
                     {...hoverFX}
-                    className="text-gray-400 text-base leading-5 mt-3 cursor-pointer first:mt-0"
+                    className="text-gray-400 text-pixel-sm leading-5 mt-3 cursor-pointer first:mt-0"
                   >
                     {text}
                   </motion.p>
@@ -78,7 +80,7 @@ function Footer() {
           >
             <motion.h3
               {...hoverFX}
-              className="text-gray-500 text-[10px] tracking-wider mb-3 uppercase cursor-pointer"
+              className="text-gray-500 text-pixel-base tracking-wider mb-3 uppercase cursor-pointer"
             >
               {section.title}
             </motion.h3>
