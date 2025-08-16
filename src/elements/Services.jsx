@@ -101,7 +101,7 @@ function Services() {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <motion.a
-              href="tel:+1234567890"
+              href="tel:+919123809082"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
               className="px-8 py-4 bg-modera-yellow text-black font-bold text-sm tracking-wider hover:bg-white transition-colors"
@@ -110,7 +110,7 @@ function Services() {
             </motion.a>
             
             <motion.a
-              href="mailto:contact@pixelstudios.com"
+              href="mailto:pixelphotoexhibition@gmail.com"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
               className="px-8 py-4 border border-modera-yellow text-modera-yellow font-bold text-sm tracking-wider hover:bg-modera-yellow hover:text-black transition-all"
@@ -142,7 +142,7 @@ function Services() {
             <br />
             DETAIL
           </h2>
-          <p className="text-white/60 text-sm max-w-md">
+          <p className="text-white/60 pixel-xl max-w-md">
             Our photography is a powerful tool that enhances a brand's visual
             identity, builds its reputation, and attracts attention. Whether you
             need images for catalogs, websites, social media, or advertising

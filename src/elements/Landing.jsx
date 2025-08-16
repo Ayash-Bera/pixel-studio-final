@@ -20,66 +20,66 @@ function Landing() {
   const portfolioItems = [
     {
       id: 0,
-      title: "Modera",
-      subtitle: "Studio",
-      image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&h=800&fit=crop",
+      title: "Radiator Springs",
+      subtitle: "",
+      image: "https://i.postimg.cc/Y9z0WvQ4/515684610-24493830260252728-150192007205577030-n.jpg",
       isHero: true
     },
     {
       id: 1,
-      title: "urban",
-      subtitle: "city",
+      title: "",
+      subtitle: "",
       image:
-        "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=600&h=800&fit=crop",
+        "https://i.postimg.cc/nVTMVQHg/515945222-24493398630295891-7031307855115242279-n.jpg",
     },
     {
       id: 2,
-      title: "Light &",
-      subtitle: "Space",
+      title: "",
+      subtitle: "",
       image:
-        "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=800&fit=crop",
+        "https://i.postimg.cc/YScCD63G/516538892-24495623216740099-8279684442823796011-n.jpg",
     },
     {
       id: 3,
       title: "",
       subtitle: "",
       image:
-        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=800&fit=crop",
+        "https://i.postimg.cc/KzxvxmCm/516553107-24497322469903507-8220903516388245163-n.jpg",
     },
     {
       id: 4,
       title: "",
       subtitle: "",
       image:
-        "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=600&h=800&fit=crop",
+        "https://i.postimg.cc/k5xX021j/516517673-24494899506812470-2145086150192969692-n.jpg",
     },
     {
       id: 5,
       title: "",
       subtitle: "",
       image:
-        "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&h=800&fit=crop",
+        "https://i.postimg.cc/9MjxFQdg/489204984-4901677233390922-636068589649480862-n.jpg",
     },
     {
       id: 6,
-      title: "Urban",
-      subtitle: "Chic",
+      title: "",
+      subtitle: "",
       image:
-        "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=600&h=800&fit=crop",
+        "https://i.postimg.cc/Z5272cCS/82266990-3166954976863165-2842124415477481472-n.jpg",
     },
     {
       id: 7,
       title: "",
       subtitle: "",
       image:
-        "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600&h=800&fit=crop",
+        "https://i.postimg.cc/FzrD3Cnj/508145322-4988886021336709-8173439536105893980-n.jpg",
     },
     {
       id: 8,
-      title: "Modern",
-      subtitle: "Loft",
+      title: "",
+      subtitle: "",
       image:
-        "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600&h=800&fit=crop",
+        "https://i.postimg.cc/zXP0Hjwg/01-REAR-BALLET.jpg",
     },
   ];
 
@@ -292,8 +292,8 @@ function Landing() {
                         )}
                       </p>
                       {item.isHero && (
-                        <p className="text-modera-yellow text-xs mt-1">
-                          Photography Excellence
+                        <p className="text-modera-yellow pixel-4xl mt-1">
+                          Pixel Studios
                         </p>
                       )}
                     </div>

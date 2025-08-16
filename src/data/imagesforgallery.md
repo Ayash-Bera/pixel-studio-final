@@ -1,0 +1,1 @@
+this folder is for the pictures in the gallery
