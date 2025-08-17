@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import images from "../data/images.json";
+import images from "../data/gallery.json";
 
 const Gallery = () => {
   const [loadedImages, setLoadedImages] = useState({});

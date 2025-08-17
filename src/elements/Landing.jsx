@@ -1,120 +1,20 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { InfinitePortfolio } from "../elements/infinite";
+import portfolioData from "../data/landing.json";
 
 function Landing() {
-  const scrollRef = useRef(null);
   const sectionRef = useRef(null);
-  const [activeIndex, setActiveIndex] = useState(0);
 
   // Cursor position for lens light effect
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
 
-  // Track scroll progress for horizontal portfolio movement
+  // Track scroll progress
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
   });
-  const trackX = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
-
-  const portfolioItems = [
-    {
-      id: 0,
-      title: "Radiator Springs",
-      subtitle: "",
-      image: "https://i.postimg.cc/Y9z0WvQ4/515684610-24493830260252728-150192007205577030-n.jpg",
-      isHero: true
-    },
-    {
-      id: 1,
-      title: "",
-      subtitle: "",
-      image:
-        "https://i.postimg.cc/nVTMVQHg/515945222-24493398630295891-7031307855115242279-n.jpg",
-    },
-    {
-      id: 2,
-      title: "",
-      subtitle: "",
-      image:
-        "https://i.postimg.cc/YScCD63G/516538892-24495623216740099-8279684442823796011-n.jpg",
-    },
-    {
-      id: 3,
-      title: "",
-      subtitle: "",
-      image:
-        "https://i.postimg.cc/KzxvxmCm/516553107-24497322469903507-8220903516388245163-n.jpg",
-    },
-    {
-      id: 4,
-      title: "",
-      subtitle: "",
-      image:
-        "https://i.postimg.cc/k5xX021j/516517673-24494899506812470-2145086150192969692-n.jpg",
-    },
-    {
-      id: 5,
-      title: "",
-      subtitle: "",
-      image:
-        "https://i.postimg.cc/9MjxFQdg/489204984-4901677233390922-636068589649480862-n.jpg",
-    },
-    {
-      id: 6,
-      title: "",
-      subtitle: "",
-      image:
-        "https://i.postimg.cc/Z5272cCS/82266990-3166954976863165-2842124415477481472-n.jpg",
-    },
-    {
-      id: 7,
-      title: "",
-      subtitle: "",
-      image:
-        "https://i.postimg.cc/FzrD3Cnj/508145322-4988886021336709-8173439536105893980-n.jpg",
-    },
-    {
-      id: 8,
-      title: "",
-      subtitle: "",
-      image:
-        "https://i.postimg.cc/k5xX021j/516517673-24494899506812470-2145086150192969692-n.jpg",
-    },
-  ];
-
-  // Horizontal scroll buttons
-  const handleScroll = (direction) => {
-    if (scrollRef.current) {
-      const scrollAmount = 250;
-      if (direction === "left") {
-        scrollRef.current.scrollLeft -= scrollAmount;
-      } else {
-        scrollRef.current.scrollLeft += scrollAmount;
-      }
-    }
-  };
-
-  // Track active portfolio index based on scroll
-  useEffect(() => {
-    const handleScrollUpdate = () => {
-      if (scrollRef.current) {
-        const scrollPercentage =
-          (scrollRef.current.scrollLeft /
-            (scrollRef.current.scrollWidth - scrollRef.current.clientWidth)) *
-          100;
-        setActiveIndex(
-          Math.floor((scrollPercentage / 100) * portfolioItems.length)
-        );
-      }
-    };
-    const scrollElement = scrollRef.current;
-    if (scrollElement) {
-      scrollElement.addEventListener("scroll", handleScrollUpdate);
-      return () =>
-        scrollElement.removeEventListener("scroll", handleScrollUpdate);
-    }
-  }, [portfolioItems.length]);
 
   // Track mouse position for lens effect
   useEffect(() => {
@@ -222,169 +122,44 @@ function Landing() {
         </motion.div>
       </section>
 
-      {/* Portfolio Section */}
-      <section className="relative pb-32" ref={sectionRef}>
-        <div className="px-8 lg:px-20 mb-6">
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-            <span className="text-red-500 text-xs font-mono tracking-wider">
-            </span>
+      {/* Portfolio Section with Infinite Scroll */}
+      <section className="relative pb-20" ref={sectionRef}>
+        {/* Minimal section label */}
+        <div className="px-8 lg:px-20 mb-8">
+          <div className="flex items-center gap-3">
+            <div className="w-1 h-1 bg-white/40 rounded-full"></div>
+            <span className="text-white/40 text-xs tracking-wider uppercase">Our Work</span>
+            <div className="flex-1 h-px bg-white/10"></div>
           </div>
         </div>
 
-        <div className="relative">
-          {/* Horizontal scroll */}
-          <motion.div
-            ref={scrollRef}
-            className="flex gap-4 overflow-x-auto scrollbar-hide px-8 lg:px-20 scroll-smooth pb-4 will-change-transform"
-            style={{
-              x: trackX,
-              scrollbarWidth: "none",
-              msOverflowStyle: "none",
-            }}
-          >
-            {portfolioItems.map((item) => (
-              <div
-                key={item.id}
-                className="flex-shrink-0 group cursor-pointer relative"
-              >
-                <div className={`relative overflow-hidden bg-zinc-900 rounded-lg shadow-xl ${
-                  item.isHero 
-                    ? "w-48 h-64 lg:w-56 lg:h-72" 
-                    : "w-40 h-52 lg:w-48 lg:h-60"
-                }`}>
-                  {/* Professional overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent z-10"></div>
-                  
-                  <img
-                    src={item.image}
-                    alt={item.isHero ? "Modera Studio" : `Portfolio ${item.id}`}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  
-                  {/* Enhanced overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-                  
-                  {/* Professional corner accents */}
-                  <div className={`absolute top-2 left-2 border-l border-t ${
-                    item.isHero ? "w-6 h-6 border-modera-yellow" : "w-4 h-4 border-white/30"
-                  }`}></div>
-                  <div className={`absolute top-2 right-2 border-r border-t ${
-                    item.isHero ? "w-6 h-6 border-modera-yellow" : "w-4 h-4 border-white/30"
-                  }`}></div>
-                  <div className={`absolute bottom-2 left-2 border-l border-b ${
-                    item.isHero ? "w-6 h-6 border-modera-yellow" : "w-4 h-4 border-white/30"
-                  }`}></div>
-                  <div className={`absolute bottom-2 right-2 border-r border-b ${
-                    item.isHero ? "w-6 h-6 border-modera-yellow" : "w-4 h-4 border-white/30"
-                  }`}></div>
-                  
-                  {item.title && (
-                    <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <p className={`text-white font-medium leading-tight ${
-                        item.isHero ? "text-lg" : "text-sm"
-                      }`}>
-                        {item.title}
-                        {item.subtitle && (
-                          <span className={`block text-white/80 mt-1 ${
-                            item.isHero ? "text-sm" : "text-xs"
-                          }`}>{item.subtitle}</span>
-                        )}
-                      </p>
-                      {item.isHero && (
-                        <p className="text-modera-yellow pixel-4xl mt-1">
-                          Pixel Studios
-                        </p>
-                      )}
-                    </div>
-                  )}
-                  
-                  {/* Hover enhancement */}
-                  <div className={`absolute inset-0 transition-all duration-300 ${
-                    item.isHero 
-                      ? "bg-modera-yellow/0 group-hover:bg-modera-yellow/15" 
-                      : "bg-modera-yellow/0 group-hover:bg-modera-yellow/10"
-                  }`}></div>
-                </div>
-              </div>
-            ))}
-          </motion.div>
+        {/* Single row infinite scroll */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+        >
+          <InfinitePortfolio 
+            items={portfolioData.portfolioImages}
+            direction="left"
+            speed="slow"
+            pauseOnHover={true}
+          />
+        </motion.div>
 
-          {/* Scale/Timeline Bar */}
-          <div className="px-8 lg:px-20 mt-8">
-            <div className="relative">
-              <div className="flex items-center gap-8 mb-3">
-                <span className="text-white/40 text-[10px] font-mono">45</span>
-                <span className="text-white/40 text-[10px] font-mono ml-12">
-                  23
-                </span>
-                <span className="text-white/40 text-[10px] font-mono ml-auto mr-32">
-                  47
-                </span>
-                <span className="text-white/40 text-[10px] font-mono">16</span>
-              </div>
-
-              <div className="relative h-8">
-                <div className="absolute top-0 left-0 right-0 h-px bg-white/20"></div>
-                <div className="absolute top-0 left-0 right-0 flex justify-between">
-                  {Array.from({ length: 100 }).map((_, i) => (
-                    <div
-                      key={i}
-                      className={`${
-                        i % 10 === 0
-                          ? "w-px h-4 bg-white/40"
-                          : i % 5 === 0
-                          ? "w-px h-2 bg-white/20"
-                          : "w-px h-1 bg-white/10"
-                      }`}
-                    />
-                  ))}
-                </div>
-
-                <div
-                  className="absolute top-0 h-4 w-px bg-red-500 transition-all duration-300"
-                  style={{
-                    left: `${(activeIndex / portfolioItems.length) * 100}%`,
-                  }}
-                />
-              </div>
-
-              <div className="mt-2 text-right">
-                <span className="text-white/30 text-[10px] font-mono">
-                  {Math.round((activeIndex / portfolioItems.length) * 100)}%
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Navigation Arrows */}
-          <div className="absolute top-1/2 -translate-y-1/2 left-4 lg:left-12">
-            <motion.button
-              whileHover={{
-                y: -3,
-                scale: 1.1,
-                boxShadow: "0px 0px 12px rgba(255,215,0,0.4)",
+        {/* Minimal progress line */}
+        <div className="px-8 lg:px-20 mt-12">
+          <div className="relative h-px bg-white/5">
+            <motion.div 
+              className="absolute top-0 left-0 h-px bg-white/20"
+              initial={{ width: "0%" }}
+              animate={{ width: "100%" }}
+              transition={{
+                duration: 60,
+                repeat: Infinity,
+                ease: "linear"
               }}
-              transition={{ type: "tween", duration: 0.15 }}
-              onClick={() => handleScroll("left")}
-              className="text-white/40 hover:text-modera-yellow transition-colors text-2xl bg-black/20 backdrop-blur-sm rounded-full w-10 h-10 flex items-center justify-center"
-            >
-              ←
-            </motion.button>
-          </div>
-          <div className="absolute top-1/2 -translate-y-1/2 right-4 lg:right-12">
-            <motion.button
-              whileHover={{
-                y: -3,
-                scale: 1.1,
-                boxShadow: "0px 0px 12px rgba(255,215,0,0.4)",
-              }}
-              transition={{ type: "tween", duration: 0.15 }}
-              onClick={() => handleScroll("right")}
-              className="text-white/40 hover:text-modera-yellow transition-colors text-2xl bg-black/20 backdrop-blur-sm rounded-full w-10 h-10 flex items-center justify-center"
-            >
-              →
-            </motion.button>
+            />
           </div>
         </div>
       </section>

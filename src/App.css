@@ -74,13 +74,11 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        rgba(0, 255, 0, 0.05) 2px,
-        rgba(0, 255, 0, 0.05) 4px
-    );
+    background: repeating-linear-gradient(0deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 255, 0, 0.05) 2px,
+            rgba(0, 255, 0, 0.05) 4px);
     pointer-events: none;
     z-index: 10;
 }
@@ -125,25 +123,47 @@ body {
 }
 
 @keyframes glitch-1 {
-    0%, 14%, 15%, 49%, 50%, 99%, 100% {
+
+    0%,
+    14%,
+    15%,
+    49%,
+    50%,
+    99%,
+    100% {
         transform: translate(0, 0);
     }
-    1%, 13% {
+
+    1%,
+    13% {
         transform: translate(-1px, 0);
     }
-    16%, 48% {
+
+    16%,
+    48% {
         transform: translate(1px, 0);
     }
 }
 
 @keyframes glitch-2 {
-    0%, 20%, 21%, 62%, 63%, 99%, 100% {
+
+    0%,
+    20%,
+    21%,
+    62%,
+    63%,
+    99%,
+    100% {
         transform: translate(0, 0);
     }
-    2%, 19% {
+
+    2%,
+    19% {
         transform: translate(1px, 0);
     }
-    22%, 61% {
+
+    22%,
+    61% {
         transform: translate(-1px, 0);
     }
 }
@@ -174,7 +194,7 @@ body {
 
 /* Retro grid background */
 .retro-grid {
-    background-image: 
+    background-image:
         linear-gradient(rgba(0, 255, 0, 0.1) 1px, transparent 1px),
         linear-gradient(90deg, rgba(0, 255, 0, 0.1) 1px, transparent 1px);
     background-size: 20px 20px;
@@ -194,6 +214,68 @@ body {
 }
 
 @keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Infinite Scroll Animation */
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-50% - 0.75rem));
+    }
+}
+
+.animate-scroll {
+    animation: scroll var(--animation-duration) linear infinite var(--animation-direction);
+}
+
+/* Scroller Container Styles */
+.scroller {
+    max-width: 100%;
+}
+
+.scroller ul {
+    display: flex;
+    padding-block: 1rem;
+    flex-wrap: nowrap;
+}
+
+/* Mask for smooth edges - more subtle for minimalist look */
+.scroller[data-animated="true"] {
+    mask: linear-gradient(90deg,
+            transparent,
+            white 5%,
+            white 95%,
+            transparent);
+    -webkit-mask: linear-gradient(90deg,
+            transparent,
+            white 5%,
+            white 95%,
+            transparent);
+}
+
+/* Pause on hover for better UX */
+.scroller ul:hover {
+    animation-play-state: paused;
+}
+
+/* Minimalist Portfolio Image Hover Effects */
+.portfolio-card {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-card:hover {
+    transform: translateY(-4px);
 }
