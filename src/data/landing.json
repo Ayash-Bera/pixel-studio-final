@@ -2,57 +2,57 @@
   "portfolioImages": [
     {
       "id": 1,
-      "title": "Radiator Springs",
-      "category": "Hero Shot",
+      "title": "",
+      "category": "",
       "image": "https://i.postimg.cc/Y9z0WvQ4/515684610-24493830260252728-150192007205577030-n.jpg",
       "photographer": "Pixel Studios"
     },
     {
       "id": 2,
-      "title": "Urban Portrait",
-      "category": "Portrait",
+      "title": "",
+      "category": "",
       "image": "https://i.postimg.cc/nVTMVQHg/515945222-24493398630295891-7031307855115242279-n.jpg",
       "photographer": "Pixel Studios"
     },
     {
       "id": 3,
-      "title": "Nature Essence",
-      "category": "Outdoor",
+      "title": "",
+      "category": "",
       "image": "https://i.postimg.cc/YScCD63G/516538892-24495623216740099-8279684442823796011-n.jpg",
       "photographer": "Pixel Studios"
     },
     {
       "id": 4,
-      "title": "Light Study",
-      "category": "Studio",
+      "title": "",
+      "category": "",
       "image": "https://i.postimg.cc/KzxvxmCm/516553107-24497322469903507-8220203516388245163-n.jpg",
       "photographer": "Pixel Studios"
     },
     {
       "id": 5,
-      "title": "Golden Hour",
-      "category": "Landscape",
+      "title": "",
+      "category": "",
       "image": "https://i.postimg.cc/k5xX021j/516517673-24494899506812470-2145086150192969692-n.jpg",
       "photographer": "Pixel Studios"
     },
     {
       "id": 6,
-      "title": "Abstract Motion",
-      "category": "Experimental",
+      "title": "",
+      "category": "",
       "image": "https://i.postimg.cc/9MjxFQdg/489204984-4901677233390922-636068589649480862-n.jpg",
       "photographer": "Pixel Studios"
     },
     {
       "id": 7,
-      "title": "Architectural Lines",
-      "category": "Architecture",
+      "title": "",
+      "category": "",
       "image": "https://i.postimg.cc/Z5272cCS/82266990-3166954976863165-2842124415477481472-n.jpg",
       "photographer": "Pixel Studios"
     },
     {
       "id": 8,
-      "title": "Mood & Atmosphere",
-      "category": "Artistic",
+      "title": "",
+      "category": "",
       "image": "https://i.postimg.cc/FzrD3Cnj/508145322-4988886021336709-8173439536105893980-n.jpg",
       "photographer": "Pixel Studios"
     }
