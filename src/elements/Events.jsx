@@ -41,6 +41,38 @@ function EventsWorkshops() {
 
   const upcomingEvents = [
     {
+    id: 'purulia-calling-tusu-festival',
+    type: 'PHOTOGRAPHY TOUR',
+    category: 'tour',
+    title: 'PURULIA CALLING',
+    subtitle: 'Tusu Festival Photography Tour',
+    date: 'JAN 13-15, 2026',
+    time: '3 Days / 2 Nights',
+    price: '₹15,000',
+    spots: 'Limited Seats',
+    image: 'https://i.postimg.cc/VvyBZtmW/here.jpg', // Keep black as requested - you can update this later
+    shortDesc: 'Three fun-filled days at Purulia with Tusu festival - outdoor, street and travel photography',
+    instructor: 'Arindam Bera,Lopamudra Bera',
+    level: 'All Levels',
+    location: 'Purulia (Barabhum to Barabhum)',
+    highlights: [
+      'Tusu festival photography experience',
+      'Traditional folk culture documentation',
+      'Street photography in rural settings',
+      'Travel and landscape photography',
+      'World in Focus photography workshop',
+      'Cultural immersion experience'
+    ],
+    includes: [
+      '2 nights accommodation',
+      'Transportation (Barabhum to Barabhum)',
+      'Festival access and guidance',
+      'Professional photography mentoring',
+      'Cultural photography techniques',
+      'Local guide assistance'
+    ]
+  },
+    {
     id: 'mangalajodi-birding-tour',
     type: 'PHOTOGRAPHY TOUR',
     category: 'tour',
@@ -229,9 +261,14 @@ function EventsWorkshops() {
                 </div>
 
                 {/* Register CTA */}
-                <button className="w-full mt-4 py-2 bg-white/10 text-white text-pixel-xs font-medium hover:bg-modera-yellow hover:text-black transition-all duration-300">
-                  VIEW DETAILS
-                </button>
+                <a 
+                  href="https://wa.me/919123809082"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full mt-4 py-2 bg-white/10 text-white text-pixel-xs font-medium hover:bg-modera-yellow hover:text-black transition-all duration-300 text-center block"
+                >
+                  REGISTER NOW
+                </a>
               </div>
             </div>
           </motion.div>
@@ -385,9 +422,15 @@ function EventsWorkshops() {
                   </div>
 
                   {/* CTA Button */}
-                  <button className="w-full py-4 bg-modera-yellow text-black font-bold hover:bg-white transition-colors">
-                    REGISTER NOW - {activeEvent.price}
-                  </button>
+                  {/* Register CTA */}
+                  <a 
+                    href="https://wa.me/919123809082"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full mt-4 py-2 bg-white/10 text-white text-pixel-xs font-medium hover:bg-modera-yellow hover:text-black transition-all duration-300 text-center block"
+                  >
+                    REGISTER NOW
+                  </a>
                 </div>
               </motion.div>
             </div>

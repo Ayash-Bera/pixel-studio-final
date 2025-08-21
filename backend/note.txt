@@ -1,2 +1,0 @@
-This will be for payments + contact forms as required. 
-Or database addition for storing customer data.
