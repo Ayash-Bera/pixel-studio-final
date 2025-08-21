@@ -7,37 +7,39 @@ import Services from "./elements/Services";
 import Events from "./elements/Events";
 import Footer from "./elements/Footer";
 import Gallery from "./elements/Gallery";
+import AboutUs from "./elements/AboutUs";
 import "./App.css";
 
 function App() {
   const [time, setTime] = useState({
     hours: 0,
-    minutes: 9,
-    seconds: 12,
-    frames: 35,
+    minutes: 0,
+    seconds: 0,
+    frames: 0,
   });
 
-  // Timer logic (unchanged)
+  // Real-time clock logic
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTime((prev) => {
-        let { hours, minutes, seconds, frames } = prev;
-        frames++;
-        if (frames >= 30) {
-          frames = 0;
-          seconds++;
-        }
-        if (seconds >= 60) {
-          seconds = 0;
-          minutes++;
-        }
-        if (minutes >= 60) {
-          minutes = 0;
-          hours++;
-        }
-        return { hours, minutes, seconds, frames };
+    const updateTime = () => {
+      const now = new Date();
+      const milliseconds = now.getMilliseconds();
+      // Convert milliseconds to frame-like value (0-29)
+      const frames = Math.floor((milliseconds / 1000) * 30);
+      
+      setTime({
+        hours: now.getHours(),
+        minutes: now.getMinutes(),
+        seconds: now.getSeconds(),
+        frames: frames,
       });
-    }, 33);
+    };
+
+    // Update immediately
+    updateTime();
+
+    // Update every 33ms for smooth frame animation
+    const interval = setInterval(updateTime, 33);
+    
     return () => clearInterval(interval);
   }, []);
 
@@ -55,16 +57,12 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element=
-                
-                  {<Landing />}
-                
-                
-              
+              element={<Landing />}
             />
             <Route path="/services" element={<Services />} />
             <Route path="/events" element={<Events />} />
             <Route path="/gallery" element={<Gallery />} />
+            <Route path="/about" element={<AboutUs />} />
           </Routes>
         </div>
 
@@ -85,52 +83,8 @@ function App() {
           <div className="absolute top-6 right-6 w-12 h-12 border-r border-t border-white/20"></div>
           <div className="absolute bottom-6 left-6 w-12 h-12 border-l border-b border-white/20"></div>
           <div className="absolute bottom-6 right-6 w-12 h-12 border-r border-b border-white/20"></div>
-          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex items-center">
-            <div className="flex items-center gap-6">
-              <span className="text-white/40 text-[10px] font-mono tracking-wider uppercase">
-                Aperture
-              </span>
-              <div className="flex items-center gap-2">
-                <span className="text-white/30 text-[10px] font-mono">
-                  f/1.4
-                </span>
-                <div className="flex items-end gap-[2px]">
-                  {[...Array(30)].map((_, i) => (
-                    <div
-                      key={i}
-                      className={`w-px bg-white/30 ${
-                        i === 0 || i === 14 || i === 29
-                          ? "h-3"
-                          : i % 5 === 0
-                          ? "h-2"
-                          : "h-1"
-                      }`}
-                    />
-                  ))}
-                </div>
-                <span className="text-white/30 text-[10px] font-mono">
-                  f/5.6
-                </span>
-                <div className="flex items-end gap-[2px]">
-                  {[...Array(30)].map((_, i) => (
-                    <div
-                      key={i}
-                      className={`w-px bg-white/30 ${
-                        i === 0 || i === 14 || i === 29
-                          ? "h-3"
-                          : i % 5 === 0
-                          ? "h-2"
-                          : "h-1"
-                      }`}
-                    />
-                  ))}
-                </div>
-                <span className="text-white/30 text-[10px] font-mono">
-                  f/16
-                </span>
-              </div>
-            </div>
-          </div>
+          
+          {/* Center crosshair */}
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <div className="relative">
               <div className="absolute w-8 h-px bg-white/10 -left-4 top-0"></div>
@@ -147,7 +101,7 @@ function App() {
           }}
         ></div>
       </div>
-        <Footer />
+      <Footer />
     </Router>
   );
 }

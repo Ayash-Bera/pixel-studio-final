@@ -7,10 +7,10 @@ function Navbar() {
 
   const menuItems = [
     { name: "home", path: "/" },
+    { name: "about us", path: "/about" }, // add a route later if needed
     { name: "services", path: "/services" },
     { name: "gallery", path: "/gallery" },
     { name: "events", path: "/events" },
-    // { name: "contact", path: "/contact" }, // add a route later if needed
   ];
 
   return (
