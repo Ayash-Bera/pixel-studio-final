@@ -52,8 +52,8 @@ function AboutUs() {
         >
           <div className="flex bg-zinc-900 p-1 rounded-none">
             {[
-              { id: "studio", label: "THE STUDIO" },
-              { id: "founder", label: "THE FOUNDER" }
+              { id: "studio", label: "The Studio" },
+              { id: "founders", label: "Meet the Founders" }
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -204,21 +204,38 @@ function AboutUs() {
           </motion.div>
         )}
 
-        {activeSection === "founder" && (
+        {activeSection === "founders" && (
           <motion.div
-            key="founder"
+            key="founders"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             className="max-w-6xl mx-auto"
           >
-            {/* Founder Introduction */}
+            {/* Co-Founders Header */}
             <motion.div
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               custom={0}
+              className="text-center mb-16"
+            >
+              <h2 className="text-modera-yellow text-[clamp(2rem,4vw,3rem)] font-bold mb-4 leading-tight">
+                MEET OUR CO-FOUNDERS
+              </h2>
+              <p className="text-white/60 text-sm md:text-base poppins-light">
+                The visionaries behind Pixel Photography Studio & Academy
+              </p>
+            </motion.div>
+
+            {/* Arindam Bera - Co-Founder */}
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={1}
               className="grid lg:grid-cols-2 gap-12 mb-20"
             >
               <div>
@@ -227,13 +244,14 @@ function AboutUs() {
                   className="relative h-96 bg-zinc-900 mb-6 overflow-hidden"
                 >
                   <img 
-                    src="https://i.postimg.cc/SN5fxKqL/KING-WITH-FROG-TOSS.jpg"
+                    src="https://i.postimg.cc/1zCjhN7W/bapuji.jpg"
                     alt="Arindam Bera"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute bottom-4 left-4 right-4 bg-black/80 p-3">
                     <h3 className="text-modera-yellow text-pixel-base font-bold">ARINDAM BERA</h3>
-                    <p className="text-white/60 text-pixel-xs">
+                    <p className="text-white/60 text-pixel-xs">Co-Founder</p>
+                    <p className="text-white/60 text-pixel-xs mt-1">
                       EFIP, AFIAP, APLAAPA, Hon.PESGSPC, GPA.PESGSPC, F.NOBEL/GOLD
                     </p>
                   </div>
@@ -241,23 +259,82 @@ function AboutUs() {
               </div>
               
               <div className="flex flex-col justify-center">
-                <h2 className="text-modera-yellow text-[clamp(2rem,4vw,3rem)] font-bold mb-6 leading-tight">
+                <h3 className="text-modera-yellow text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-6 leading-tight">
                   THE ARTIST'S JOURNEY
-                </h2>
+                </h3>
                 <div className="space-y-4 text-white/80 leading-relaxed poppins-light">
                   <p className="text-sm md:text-base">
-                    From a tender age, I harboured a fervent desire to become an artist. 
-                    A lifelong passion for drawing ignited my creative spirit.
+                    From a tender age, I harbored an unwavering passion for artistic expression. 
+                    Drawing became my first language of creativity, igniting a lifelong pursuit 
+                    of visual storytelling that would define my journey as an artist.
                   </p>
                   <p className="text-sm md:text-base">
-                    This innate artistic inclination naturally evolved into a fascination with 
-                    capturing moments in time, leading me to the world of photography. While the 
-                    medium transformed, the artist within me remained steadfast.
+                    This innate artistic foundation naturally evolved into a profound fascination 
+                    with photography—the art of capturing fleeting moments and preserving them 
+                    for eternity. While the medium transformed, my commitment to artistic excellence 
+                    remained unwavering and steadfast.
                   </p>
                   <p className="text-sm md:text-base">
-                    Although the canvas and brushes have been replaced by cameras and lenses, 
-                    <span className="text-modera-yellow poppins-medium"> the painter in me continues to flourish</span>, 
-                    seeking to evoke emotions and tell stories through every image I create.
+                    Though canvas and brushes have given way to cameras and lenses, 
+                    <span className="text-modera-yellow poppins-medium"> the painter's soul within me continues to flourish</span>, 
+                    constantly seeking new ways to evoke profound emotions and craft compelling 
+                    narratives through every carefully composed frame.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Lopamudra Bera - Co-Founder */}
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={2}
+              className="grid lg:grid-cols-2 gap-12 mb-20"
+            >
+              <div className="lg:order-2">
+                <motion.div
+                  {...hoverFX}
+                  className="relative h-96 bg-zinc-900 mb-6 overflow-hidden"
+                >
+                  <img 
+                    src="https://i.postimg.cc/dtbNJYBY/mother.jpg"
+                    alt="Lopamudra Bera"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute bottom-4 left-4 right-4 bg-black/80 p-3">
+                    <h3 className="text-modera-yellow text-pixel-base font-bold">LOPAMUDRA BERA</h3>
+                    <p className="text-white/60 text-pixel-xs">Co-Founder</p>
+                    <p className="text-white/60 text-pixel-xs mt-1">
+                      AFIAP, AFIP (2025)
+                    </p>
+                  </div>
+                </motion.div>
+              </div>
+              
+              <div className="lg:order-1 flex flex-col justify-center">
+                <h3 className="text-modera-yellow text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-6 leading-tight">
+                  THE MULTIMEDIA PROFESSIONAL
+                </h3>
+                <div className="space-y-4 text-white/80 leading-relaxed poppins-light">
+                  <p className="text-sm md:text-base">
+                    My professional journey began as a multimedia specialist, where I cultivated 
+                    an extensive expertise spanning over <span className="text-modera-yellow poppins-medium"> 
+                    two decades of experience</span> in advanced photo editing, precision retouching, 
+                    and sophisticated post-processing techniques.
+                  </p>
+                  <p className="text-sm md:text-base">
+                    Transitioning into the dynamic field of photography three years ago, I have 
+                    successfully orchestrated numerous indoor and outdoor photography workshops, 
+                    passionately sharing technical knowledge while inspiring the next generation 
+                    of aspiring photographers to discover their unique creative voices.
+                  </p>
+                  <p className="text-sm md:text-base">
+                    My specialized expertise in salon photography editing has earned recognition 
+                    through prestigious distinctions, including <span className="text-modera-yellow poppins-medium"> 
+                    AFIAP and AFIP honors in 2025</span>, validating years of dedicated craftsmanship 
+                    and artistic excellence.
                   </p>
                 </div>
               </div>
@@ -269,10 +346,10 @@ function AboutUs() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              custom={1}
+              custom={3}
               className="grid lg:grid-cols-2 gap-12 mb-20"
             >
-              <div className="lg:order-2">
+              <div>
                 <motion.div
                   {...hoverFX}
                   className="relative h-80 bg-zinc-900 mb-6 overflow-hidden"
@@ -285,53 +362,53 @@ function AboutUs() {
                 </motion.div>
               </div>
               
-              <div className="lg:order-1 flex flex-col justify-center">
-                <h2 className="text-modera-yellow text-[clamp(2rem,4vw,3rem)] font-bold mb-6 leading-tight">
+              <div className="flex flex-col justify-center">
+                <h3 className="text-modera-yellow text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-6 leading-tight">
                   PHOTOGRAPHY AS ART
-                </h2>
+                </h3>
                 <div className="space-y-4 text-white/80 leading-relaxed poppins-light">
                   <p className="text-sm md:text-base">
-                    Photography for me is an endless exploration, a pursuit of capturing 
+                    Photography for us is an endless exploration, a pursuit of capturing 
                     fleeting moments and translating them into tangible art.
                   </p>
                   <p className="text-sm md:text-base">
-                    A camera was more than a device; it was a portal into realms of imagination 
-                    and expression. I saw the world as a painter sees a canvas, each scene a 
+                    A camera is more than a device; it's a portal into realms of imagination 
+                    and expression. We see the world as painters see a canvas, each scene a 
                     potential masterpiece waiting to be captured.
                   </p>
                   <p className="text-sm md:text-base">
-                    <span className="text-modera-yellow poppins-medium">With every click, I was etching moments into eternity</span>, 
+                    <span className="text-modera-yellow poppins-medium">With every click, we are etching moments into eternity</span>, 
                     transforming fleeting emotions into tangible art.
                   </p>
                 </div>
               </div>
             </motion.div>
 
-            {/* Vision for the Future */}
+            {/* Shared Vision */}
             <motion.div
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              custom={2}
+              custom={4}
               className="text-center max-w-4xl mx-auto"
             >
-              <h2 className="text-modera-yellow text-[clamp(2rem,4vw,3rem)] font-bold mb-8 leading-tight">
-                VISION FOR THE FUTURE
-              </h2>
+              <h3 className="text-modera-yellow text-[clamp(2rem,4vw,3rem)] font-bold mb-8 leading-tight">
+                OUR SHARED VISION
+              </h3>
               <div className="space-y-6 text-white/80 leading-relaxed poppins-light">
                 <p className="text-base md:text-lg poppins-regular">
-                  As we look ahead, I am filled with anticipation for what the future holds. 
-                  I envision a world where photography is not just an art form but a 
+                  Together, we are filled with anticipation for what the future holds. 
+                  We envision a world where photography is not just an art form but a 
                   <span className="text-modera-yellow poppins-medium"> powerful tool for social change</span>.
                 </p>
                 <p className="text-sm md:text-base">
-                  My vision for Pixel Photography Studio extends beyond its physical walls. 
-                  I am committed to harnessing the power of modern technology and fostering 
-                  a culture of experimentation.
+                  Our vision for Pixel Photography Studio extends beyond its physical walls. 
+                  We are committed to harnessing the power of modern technology and fostering 
+                  a culture of experimentation and learning.
                 </p>
                 <p className="text-modera-yellow poppins-medium text-sm md:text-base">
-                  By staying at the forefront of industry advancements, I aim to push the 
+                  By staying at the forefront of industry advancements, we aim to push the 
                   boundaries of photographic expression and elevate the studio to new heights.
                 </p>
               </div>

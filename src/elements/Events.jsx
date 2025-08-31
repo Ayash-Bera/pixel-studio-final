@@ -19,11 +19,11 @@ function EventsWorkshops() {
     } else {
       document.body.style.overflow = 'auto';
     }
-
+    
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [activeEvent]);
-
+  
   // Close modal on outside click
   useEffect(() => {
     const handleOutsideClick = (e) => {
@@ -35,11 +35,75 @@ function EventsWorkshops() {
     if (activeEvent) {
       document.addEventListener('mousedown', handleOutsideClick);
     }
-
+    
     return () => document.removeEventListener('mousedown', handleOutsideClick);
   }, [activeEvent]);
 
   const upcomingEvents = [
+    {
+    id: 'glassware-fine-art-workshop',
+    type: 'PHOTOGRAPHY WORKSHOP',
+    category: 'workshop',
+    title: 'GLASSWARE & FINE ART',
+    subtitle: 'Photography Workshop',
+    date: 'SEP 6, 2025',
+    time: '11:00 AM - 6:00 PM',
+    price: '₹3,999',
+    spots: 'Limited Seats',
+    image: 'https://i.postimg.cc/gcywkqdB/glass.jpg',
+    shortDesc: 'Master the art of photographing glassware and fine art objects with professional techniques',
+    instructor: 'Pixel Photography Studio Team',
+    level: 'All Levels',
+    location: 'Pixel Photography Studio (near Netaji Nagar Police Station)',
+    highlights: [
+      '5 comprehensive shooting sequences',
+      'Advanced lighting for transparent objects',
+      'Fine art photography techniques',
+      'Professional studio setup methods',
+      'Hands-on practical sessions',
+      'Small group personalized attention'
+    ],
+    includes: [
+      'Full day workshop (7 hours)',
+      'Professional studio access',
+      'Lighting equipment usage',
+      'Course materials and guides',
+      'Certificate of completion',
+      'Tea/coffee breaks'
+    ]
+  },
+    {
+    id: 'desert-calling-rajasthan',
+    type: 'PHOTOGRAPHY WORKSHOP',
+    category: 'workshop',
+    title: 'DESERT CALLING',
+    subtitle: 'Rajasthan Photography Workshop',
+    date: 'OCT 31 - NOV 5, 2025',
+    time: '6 Days / 5 Nights',
+    price: '₹36,000',
+    spots: '2 Spots Left',
+    image: 'https://i.postimg.cc/bJFwtg8s/istockphoto-1224021113-612x612.jpg', 
+    shortDesc: 'Six fun-filled days in Rajasthan with camel fair, desert photography, and desert camp stay',
+    instructor: 'Arindam Bera, Lopamudra Bera',
+    level: 'All Levels',
+    location: 'Pushkar - Jodhpur - Jaisalmer',
+    highlights: [
+      'Camel fair photography experience',
+      'Desert landscape and camp photography',
+      'Street photography in historic cities',
+      'Travel and landscape photography techniques',
+      'World in Focus photography workshop',
+      'Professional desert camping experience'
+    ],
+    includes: [
+      '5 nights accommodation (twin sharing)',
+      'Transportation (Kolkata to Kolkata)',
+      'Desert camp stay experience',
+      'All photography workshop sessions',
+      'Professional guidance and mentoring',
+      'Access to camel fair events'
+    ]
+    },
     {
     id: 'purulia-calling-tusu-festival',
     type: 'PHOTOGRAPHY TOUR',
@@ -102,38 +166,6 @@ function EventsWorkshops() {
       'Photography tips and techniques'
     ]
   },
-  {
-  id: 'desert-calling-rajasthan',
-  type: 'PHOTOGRAPHY WORKSHOP',
-  category: 'workshop',
-  title: 'DESERT CALLING',
-  subtitle: 'Rajasthan Photography Workshop',
-  date: 'OCT 31 - NOV 5, 2025',
-  time: '6 Days / 5 Nights',
-  price: '₹36,000',
-  spots: '2 Spots Left',
-  image: 'https://i.postimg.cc/bJFwtg8s/istockphoto-1224021113-612x612.jpg', 
-  shortDesc: 'Six fun-filled days in Rajasthan with camel fair, desert photography, and desert camp stay',
-  instructor: 'Arindam Bera, Lopamudra Bera',
-  level: 'All Levels',
-  location: 'Pushkar - Jodhpur - Jaisalmer',
-  highlights: [
-    'Camel fair photography experience',
-    'Desert landscape and camp photography',
-    'Street photography in historic cities',
-    'Travel and landscape photography techniques',
-    'World in Focus photography workshop',
-    'Professional desert camping experience'
-  ],
-  includes: [
-    '5 nights accommodation (twin sharing)',
-    'Transportation (Kolkata to Kolkata)',
-    'Desert camp stay experience',
-    'All photography workshop sessions',
-    'Professional guidance and mentoring',
-    'Access to camel fair events'
-  ]
-  }
   ];
 
   // Filter events
