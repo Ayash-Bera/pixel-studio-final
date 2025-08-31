@@ -55,7 +55,7 @@ function Services() {
       a: "Typical photoshoots range from 2-6 hours depending on the scope and number of shots required. Complex projects may require multiple days.",
     },
     {
-      q: "How much time it takes to edit?",
+      q: "How much time does it take to edit?",
       a: "Standard editing takes 5-10 business days. Rush delivery (2-3 days) is available with an additional fee. Complex retouching may require additional time.",
     },
     {
@@ -89,7 +89,7 @@ function Services() {
             SERVICES
           </h1>
           
-          <p className="text-white/80 text-lg max-w-2xl mx-auto mb-12">
+          <p className="text-white/80 text-lg max-w-2xl mx-auto mb-12 poppins-light">
             High-end photography solutions for brands and individuals that demand excellence.
             From concept to final delivery, we craft visual stories that captivate.
           </p>
@@ -138,7 +138,7 @@ function Services() {
             <br />
             DETAIL
           </h2>
-          <p className="text-white/60 text-pixel-xs max-w-md">
+          <p className="text-white/60 text-pixel-xs max-w-md poppins-light leading-relaxed">
             Our photography is a powerful tool that enhances a brand's visual
             identity, builds its reputation, and attracts attention. Whether you
             need images for catalogs, websites, social media, or advertising
@@ -191,7 +191,7 @@ function Services() {
                 className="text-white text-lg font-medium mb-2"
                 dangerouslySetInnerHTML={{ __html: card.title }}
               />
-              <p className="text-white/50 text-pixel-xs leading-relaxed mb-4">
+              <p className="text-white/50 text-pixel-xs leading-relaxed mb-4 poppins-light">
                 {card.text}
               </p>
             </motion.div>
@@ -207,7 +207,7 @@ function Services() {
           className="mt-16 pt-8 border-t border-white/10"
         >
           <p className="text-white/60 text-pixel-xs mb-2">▶ PRICING</p>
-          <p className="text-white/80 text-pixel-xs">
+          <p className="text-white/80 text-pixel-xs poppins-light leading-relaxed">
             Pricing depends on the scope of work, the number of objects, and the
             type of photography. Contact us for an exact quote. <br /> For more details about upcoming workshops please check our events page. 
           </p>
@@ -260,7 +260,7 @@ function Services() {
                   className="overflow-hidden"
                 >
                   {open && (
-                    <p className="text-white/50 text-pixel-sm mt-4 ml-12 leading-relaxed">
+                    <p className="text-white/50 text-pixel-xs mt-4 ml-12 leading-relaxed poppins-light">
                       {faq.a}
                     </p>
                   )}

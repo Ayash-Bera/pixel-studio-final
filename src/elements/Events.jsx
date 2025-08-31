@@ -196,7 +196,7 @@ function EventsWorkshops() {
           EVENTS &<br />
           WORKSHOPS
         </h1>
-        <p className="text-white/60 text-pixel-sm max-w-2xl mb-8">
+        <p className="text-white/60 text-base max-w-2xl mb-8 poppins-light leading-relaxed">
           Join our exclusive masterclasses and workshops designed for photographers and creatives 
           who want to elevate their craft. Learn from industry professionals in our state-of-the-art studio.
         </p>
@@ -274,7 +274,7 @@ function EventsWorkshops() {
                 </h3>
                 <p className="text-modera-yellow text-sm mb-3">{event.subtitle}</p>
                 
-                <p className="text-white/60 text-pixel-sm mb-4 line-clamp-2">
+                <p className="text-white/60 text-pixel-xs mb-4 line-clamp-2 poppins-light leading-relaxed">
                   {event.shortDesc}
                 </p>
 
@@ -409,10 +409,10 @@ function EventsWorkshops() {
 
                   {/* Description */}
                   <div className="mb-8">
-                    <p className="text-white/80 text-pixel-sm leading-relaxed mb-4">
+                    <p className="text-white/80 text-pixel-xs leading-relaxed mb-4 poppins-light">
                       {activeEvent.shortDesc}
                     </p>
-                    <div className="grid grid-cols-2 gap-4 text-pixel-sm">
+                    <div className="grid grid-cols-2 gap-4 text-pixel-xs poppins-regular">
                       <div>
                         <span className="text-white/40">Instructor:</span>
                         <span className="text-white ml-2">{activeEvent.instructor}</span>
@@ -435,7 +435,7 @@ function EventsWorkshops() {
                       {activeEvent.highlights.map((highlight, i) => (
                         <div key={i} className="flex items-start gap-3">
                           <span className="text-modera-yellow mt-1">▶</span>
-                          <span className="text-white/80 text-pixel-sm">{highlight}</span>
+                          <span className="text-white/80 text-pixel-xs poppins-light">{highlight}</span>
                         </div>
                       ))}
                     </div>
@@ -447,7 +447,7 @@ function EventsWorkshops() {
                     <div className="grid grid-cols-2 gap-3">
                       {activeEvent.includes.map((item, i) => (
                         <div key={i} className="bg-black p-3">
-                          <span className="text-white/60 text-pixel-xs">✓ {item}</span>
+                          <span className="text-white/60 text-pixel-xs poppins-light">✓ {item}</span>
                         </div>
                       ))}
                     </div>
