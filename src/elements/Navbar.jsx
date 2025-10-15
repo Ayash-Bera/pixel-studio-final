@@ -10,6 +10,7 @@ function Navbar() {
     { name: "about us", path: "/about" }, // add a route later if needed
     { name: "services", path: "/services" },
     { name: "gallery", path: "/gallery" },
+    { name: "workshops", path: "/workshops" },
     { name: "events", path: "/events" },
   ];
 

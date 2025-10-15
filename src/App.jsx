@@ -8,6 +8,8 @@ import Events from "./elements/Events";
 import Footer from "./elements/Footer";
 import Gallery from "./elements/Gallery";
 import AboutUs from "./elements/AboutUs";
+import Workshops from "./elements/Workshops";
+import WorkshopDetail from "./elements/WorkshopDetail";
 import "./App.css";
 
 function App() {
@@ -63,6 +65,8 @@ function App() {
             <Route path="/events" element={<Events />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/about" element={<AboutUs />} />
+            <Route path="/workshops" element={<Workshops />} />
+            <Route path="/workshops/:workshopId" element={<WorkshopDetail />} />
           </Routes>
         </div>
 

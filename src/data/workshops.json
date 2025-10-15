@@ -1,0 +1,29 @@
+[
+  {
+    "id": "84th-workshop",
+    "name": "84th Workshop",
+    "date": "2024-09-06",
+    "description": "Creative Photography Session - Exploring artistic expression and innovative techniques in photography",
+    "coverImage": "https://i.postimg.cc/FRYDJK3G/1000581898.jpg",
+    "photoCount": 24,
+    "location": "Photography Studio"
+  },
+  {
+    "id": "85th-workshop",
+    "name": "85th Photography Workshop",
+    "date": "2025-09-20",
+    "description": "Advanced Photography Techniques - Professional skills development and creative exploration",
+    "coverImage": "https://i.postimg.cc/nzz2yGkD/1000591961.jpg",
+    "photoCount": 23,
+    "location": "Photography Studio"
+  },
+  {
+    "id": "86th-workshop",
+    "name": "86th Photography Workshop",
+    "date": "2025-10-02",
+    "description": "Creative Photography Exploration - Capturing moments and artistic expression through advanced photography techniques",
+    "coverImage": "https://i.postimg.cc/P5bkJdkW/1000615943.jpg",
+    "photoCount": 50,
+    "location": "Dey Bari "
+  }
+]
