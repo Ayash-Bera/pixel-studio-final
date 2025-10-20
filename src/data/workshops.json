@@ -25,5 +25,14 @@
     "coverImage": "https://i.postimg.cc/P5bkJdkW/1000615943.jpg",
     "photoCount": 50,
     "location": "Dey Bari "
+  },
+  {
+    "id": "87th-workshop",
+    "name": "87th Photography Workshop",
+    "date": "2025-10-11",
+    "description": "Conceptual & Portrait Session - Professional models, creative lighting, and studio portrait exploration",
+    "coverImage": "https://i.postimg.cc/Vvy3CVVG/1000625538-2.jpg",
+    "photoCount": 11,
+    "location": "Photography Studio"
   }
 ]
