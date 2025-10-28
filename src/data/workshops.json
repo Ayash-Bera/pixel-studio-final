@@ -34,5 +34,14 @@
     "coverImage": "https://i.postimg.cc/Vvy3CVVG/1000625538-2.jpg",
     "photoCount": 11,
     "location": "Photography Studio"
+  },
+  {
+    "id": "88th-workshop",
+    "name": "88th Photography Workshop",
+    "date": "2025-10-25",
+    "description": "Studio session featuring creative concepts and portraiture",
+    "coverImage": "https://i.postimg.cc/50tv0jJH/Whats-App-Image-2025-10-28-at-10-50-59-PM-1.jpg",
+    "photoCount": 14,
+    "location": "Photography Studio"
   }
 ]
