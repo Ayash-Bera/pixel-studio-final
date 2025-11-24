@@ -6,6 +6,7 @@ import SEOHead from "../components/SEOHead";
 import { generatePageMeta } from "../utils/seo";
 import { generateCourseSchema, generateBreadcrumbSchema } from "../utils/schema";
 import { pageConfigs } from "../config/seoConfig";
+import { EtherealShadow } from "./EtherealShadow";
 
 const Workshops = () => {
   const [workshops, setWorkshops] = useState([]);
@@ -83,7 +84,8 @@ const Workshops = () => {
   return (
     <>
       <SEOHead meta={pageMeta} schema={schemas} />
-      <div className="bg-black text-white min-h-screen">
+      <EtherealShadow>
+      <div className="text-white min-h-screen">
       <section className="px-8 lg:px-20 pt-32 pb-20">
         {/* Header */}
         <motion.div
@@ -193,6 +195,7 @@ const Workshops = () => {
         </div>
       </section>
     </div>
+    </EtherealShadow>
     </>
   );
 };

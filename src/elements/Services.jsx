@@ -6,6 +6,7 @@ import SEOHead from "../components/SEOHead";
 import { generatePageMeta } from "../utils/seo";
 import { generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema } from "../utils/schema";
 import { pageConfigs } from "../config/seoConfig";
+import { EtherealShadow } from "./EtherealShadow";
 
 // AuroraBackground Component
 const AuroraBackground = ({
@@ -113,7 +114,8 @@ function Services() {
   return (
     <>
       <SEOHead meta={pageMeta} schema={schemas} />
-      <div className="min-h-screen bg-black text-white">
+      <EtherealShadow>
+      <div className="min-h-screen text-white">
       {/* ===================== Hero with Aurora Background ===================== */}
       <AuroraBackground className="dark bg-black" showRadialGradient={true}>
         <motion.div
@@ -310,6 +312,7 @@ function Services() {
         </div>
       </section>
     </div>
+    </EtherealShadow>
     </>
   );
 }

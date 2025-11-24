@@ -4,6 +4,7 @@ import SEOHead from "../components/SEOHead";
 import { generatePageMeta } from "../utils/seo";
 import { generateEventSchema, generateBreadcrumbSchema } from "../utils/schema";
 import { pageConfigs } from "../config/seoConfig";
+import { EtherealShadow } from "./EtherealShadow";
 
 function EventsWorkshops() {
   const [activeEvent, setActiveEvent] = useState(null);
@@ -353,7 +354,8 @@ function EventsWorkshops() {
   return (
     <>
       <SEOHead meta={pageMeta} schema={schemas} />
-      <section className="min-h-screen px-8 lg:px-20 py-20 bg-black">
+      <EtherealShadow>
+      <section className="min-h-screen px-8 lg:px-20 py-20">
       {/* Section Header */}
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
@@ -640,6 +642,7 @@ function EventsWorkshops() {
         )}
       </AnimatePresence>
     </section>
+    </EtherealShadow>
     </>
   );
 }

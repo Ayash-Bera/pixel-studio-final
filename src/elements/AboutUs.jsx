@@ -4,6 +4,7 @@ import SEOHead from "../components/SEOHead";
 import { generatePageMeta } from "../utils/seo";
 import { generateLocalBusinessSchema, generateOrganizationSchema, generateBreadcrumbSchema } from "../utils/schema";
 import { pageConfigs } from "../config/seoConfig";
+import { EtherealShadow } from "./EtherealShadow";
 
 function AboutUs() {
   const [activeSection, setActiveSection] = useState("studio");
@@ -57,7 +58,8 @@ function AboutUs() {
   return (
     <>
       <SEOHead meta={pageMeta} schema={schemas} />
-      <div className="min-h-screen bg-black text-white">
+      <EtherealShadow>
+      <div className="min-h-screen text-white">
       {/* Hero Section */}
       <section className="px-8 lg:px-20 pt-32 pb-20">
         <motion.div
@@ -454,6 +456,7 @@ function AboutUs() {
 
       {/* Contact CTA */}
     </div>
+    </EtherealShadow>
     </>
   );
 }

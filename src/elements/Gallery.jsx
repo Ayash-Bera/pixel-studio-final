@@ -5,6 +5,7 @@ import SEOHead from "../components/SEOHead";
 import { generatePageMeta } from "../utils/seo";
 import { generateImageSchema, generateBreadcrumbSchema } from "../utils/schema";
 import { pageConfigs } from "../config/seoConfig";
+import { EtherealShadow } from "./EtherealShadow";
 
 const Gallery = () => {
   const [loadedImages, setLoadedImages] = useState({});
@@ -44,7 +45,8 @@ const Gallery = () => {
   return (
     <>
       <SEOHead meta={pageMeta} schema={schemas} />
-      <div className="bg-black text-white min-h-screen">
+      <EtherealShadow>
+      <div className="text-white min-h-screen">
       <section className="px-8 lg:px-20 pt-32 pb-20">
         {/* Header */}
         <motion.div
@@ -100,6 +102,7 @@ const Gallery = () => {
         </AnimatePresence>
       </section>
     </div>
+    </EtherealShadow>
     </>
   );
 };
