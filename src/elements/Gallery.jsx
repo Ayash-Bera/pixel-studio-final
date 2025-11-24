@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import images from "../data/gallery.json";
+import SEOHead from "../components/SEOHead";
+import { generatePageMeta } from "../utils/seo";
+import { generateImageSchema, generateBreadcrumbSchema } from "../utils/schema";
+import { pageConfigs } from "../config/seoConfig";
 
 const Gallery = () => {
   const [loadedImages, setLoadedImages] = useState({});
@@ -11,12 +15,36 @@ const Gallery = () => {
   const photographers = ["all", ...new Set(images.map(img => img.photographer))];
 
   // Filter images based on selected photographer
-  const filteredImages = filter === "all" 
-    ? images 
+  const filteredImages = filter === "all"
+    ? images
     : images.filter(img => img.photographer === filter);
 
+  // SEO Configuration
+  const pageMeta = generatePageMeta(pageConfigs.gallery);
+
+  // Generate image schemas for featured images (first 10)
+  const imageSchemas = images.slice(0, 10).map((img) =>
+    generateImageSchema({
+      url: img.img,
+      title: img.title || "Professional Photography",
+      description: `${img.title || "Professional photograph"} by ${img.photographer} - Pixel Studios`,
+      photographer: img.photographer,
+      uploadDate: new Date().toISOString(),
+    })
+  );
+
+  const schemas = [
+    ...imageSchemas,
+    generateBreadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Gallery", path: "/gallery" },
+    ]),
+  ];
+
   return (
-    <div className="bg-black text-white min-h-screen">
+    <>
+      <SEOHead meta={pageMeta} schema={schemas} />
+      <div className="bg-black text-white min-h-screen">
       <section className="px-8 lg:px-20 pt-32 pb-20">
         {/* Header */}
         <motion.div
@@ -72,6 +100,7 @@ const Gallery = () => {
         </AnimatePresence>
       </section>
     </div>
+    </>
   );
 };
 

@@ -1,5 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import SEOHead from "../components/SEOHead";
+import { generatePageMeta } from "../utils/seo";
+import { generateEventSchema, generateBreadcrumbSchema } from "../utils/schema";
+import { pageConfigs } from "../config/seoConfig";
 
 function EventsWorkshops() {
   const [activeEvent, setActiveEvent] = useState(null);
@@ -315,8 +319,41 @@ function EventsWorkshops() {
     return 'text-green-400';
   };
 
+  // SEO Configuration
+  const pageMeta = generatePageMeta(pageConfigs.events);
+
+  // Generate event schemas
+  const eventSchemas = upcomingEvents.slice(0, 5).map((event) =>
+    generateEventSchema({
+      title: event.title,
+      description: event.shortDesc,
+      startDate: event.date,
+      endDate: event.date,
+      isOnline: false,
+      location: {
+        name: event.location,
+        address: "Pixel Studios",
+      },
+      image: event.image,
+      url: `https://pixelstudios.com/events#${event.id}`,
+      price: event.price.replace('₹', ''),
+      currency: 'INR',
+      registrationStart: new Date().toISOString(),
+    })
+  );
+
+  const schemas = [
+    ...eventSchemas,
+    generateBreadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Events", path: "/events" },
+    ]),
+  ];
+
   return (
-    <section className="min-h-screen px-8 lg:px-20 py-20 bg-black">
+    <>
+      <SEOHead meta={pageMeta} schema={schemas} />
+      <section className="min-h-screen px-8 lg:px-20 py-20 bg-black">
       {/* Section Header */}
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
@@ -603,6 +640,7 @@ function EventsWorkshops() {
         )}
       </AnimatePresence>
     </section>
+    </>
   );
 }
 

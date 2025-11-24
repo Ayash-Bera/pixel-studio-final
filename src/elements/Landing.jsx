@@ -6,6 +6,10 @@ import { InfinitePortfolio } from "../elements/infinite";
 import { GradientButton } from "../elements/GradientButton";
 import { BeamsBackground } from "../elements/BeamsBackground";
 import portfolioData from "../data/landing.json";
+import SEOHead from "../components/SEOHead";
+import { generatePageMeta } from "../utils/seo";
+import { generateOrganizationSchema, generateBreadcrumbSchema } from "../utils/schema";
+import { pageConfigs } from "../config/seoConfig";
 
 function Landing() {
   const sectionRef = useRef(null);
@@ -26,7 +30,16 @@ function Landing() {
     return () => window.removeEventListener("mousemove", move);
   }, []);
 
+  // SEO Configuration
+  const pageMeta = generatePageMeta(pageConfigs.home);
+  const schemas = [
+    generateOrganizationSchema(),
+    generateBreadcrumbSchema([{ name: "Home", path: "/" }]),
+  ];
+
   return (
+    <>
+      <SEOHead meta={pageMeta} schema={schemas} />
     <BeamsBackground intensity="subtle">
       <motion.main
         initial={{ opacity: 0 }}
@@ -119,6 +132,7 @@ function Landing() {
       </section>
     </motion.main>
     </BeamsBackground>
+    </>
   );
 }
 

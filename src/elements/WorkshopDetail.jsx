@@ -3,6 +3,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { ArrowLeftIcon, ArrowRightIcon, XMarkIcon, CalendarIcon, UsersIcon, MapPinIcon } from "@heroicons/react/24/outline";
 import workshopsData from "../data/workshops.json";
+import SEOHead from "../components/SEOHead";
+import { generatePageMeta } from "../utils/seo";
+import { generateCourseSchema, generateBreadcrumbSchema, generateImageSchema } from "../utils/schema";
+import { pageConfigs } from "../config/seoConfig";
 
 const WorkshopDetail = () => {
   const { workshopId } = useParams();
@@ -89,6 +93,48 @@ const WorkshopDetail = () => {
   // Filter photos based on selected category - simplified
   const filteredPhotos = photos;
 
+  // SEO Configuration
+  const workshopMeta = workshop ? {
+    title: `${workshop.name} - Pixel Studios Photography Workshop`,
+    description: workshop.description,
+    keywords: `${workshop.name}, photography workshop, ${workshop.location}, photography education`,
+    url: `/workshops/${workshopId}`,
+    image: photos[0]?.img || "https://pixelstudios.com/og-image.jpg",
+  } : pageConfigs.workshops;
+
+  const pageMeta = generatePageMeta(workshopMeta);
+
+  const schemas = workshop ? [
+    generateCourseSchema({
+      title: workshop.name,
+      description: workshop.description,
+      level: "All Levels",
+      topics: [workshop.name],
+      price: "3999",
+      currency: "INR",
+      isOnline: false,
+      schedule: {
+        startDate: workshop.date,
+        endDate: workshop.date,
+      },
+      instructor: "Professional Photography Team",
+    }),
+    ...photos.slice(0, 5).map((photo) =>
+      generateImageSchema({
+        url: photo.img,
+        title: photo.title || workshop.name,
+        description: `${workshop.name} workshop photo`,
+        photographer: photo.photographer || "Pixel Studios",
+        uploadDate: new Date().toISOString(),
+      })
+    ),
+    generateBreadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Workshops", path: "/workshops" },
+      { name: workshop.name, path: `/workshops/${workshopId}` },
+    ]),
+  ] : [];
+
   if (loading) {
     return (
       <div className="bg-black text-white min-h-screen flex items-center justify-center">
@@ -119,7 +165,9 @@ const WorkshopDetail = () => {
   }
 
   return (
-    <div className="bg-black text-white min-h-screen">
+    <>
+      <SEOHead meta={pageMeta} schema={schemas} />
+      <div className="bg-black text-white min-h-screen">
       <section className="px-8 lg:px-20 pt-32 pb-20">
         {/* Navigation */}
         <motion.div
@@ -391,7 +439,8 @@ const WorkshopDetail = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+      </div>
+    </>
   );
 };
 

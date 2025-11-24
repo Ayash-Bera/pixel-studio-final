@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import WorkshopCard from "./WorkshopCard";
 import workshopsData from "../data/workshops.json";
+import SEOHead from "../components/SEOHead";
+import { generatePageMeta } from "../utils/seo";
+import { generateCourseSchema, generateBreadcrumbSchema } from "../utils/schema";
+import { pageConfigs } from "../config/seoConfig";
 
 const Workshops = () => {
   const [workshops, setWorkshops] = useState([]);
@@ -47,8 +51,39 @@ const Workshops = () => {
     setFilteredWorkshops(filtered);
   }, [workshops, sortBy, searchTerm]);
 
+  // SEO Configuration
+  const pageMeta = generatePageMeta(pageConfigs.workshops);
+
+  // Generate course schemas for featured workshops
+  const courseSchemas = workshops.slice(0, 5).map((workshop) =>
+    generateCourseSchema({
+      title: workshop.name,
+      description: workshop.description,
+      level: "All Levels",
+      topics: [workshop.name],
+      price: workshop.maxParticipants ? "3999" : undefined,
+      currency: "INR",
+      isOnline: false,
+      schedule: {
+        startDate: workshop.date,
+        endDate: workshop.date,
+      },
+      instructor: "Professional Photography Team",
+    })
+  );
+
+  const schemas = [
+    ...courseSchemas,
+    generateBreadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Workshops", path: "/workshops" },
+    ]),
+  ];
+
   return (
-    <div className="bg-black text-white min-h-screen">
+    <>
+      <SEOHead meta={pageMeta} schema={schemas} />
+      <div className="bg-black text-white min-h-screen">
       <section className="px-8 lg:px-20 pt-32 pb-20">
         {/* Header */}
         <motion.div
@@ -59,7 +94,7 @@ const Workshops = () => {
         >
           <p className="text-white/60 text-pixel-sm tracking-wider mb-4">▶ EDUCATION</p>
           <h1 className="text-[clamp(3rem,8vw,8rem)] font-black leading-[0.9] text-modera-yellow mb-8">
-            PREVIOUS WORKSHOP
+            PREVIOUS WORKSHOPS
           </h1>
           <p className="text-white/60 text-pixel-sm max-w-2xl mb-8">
             Explore our comprehensive collection of photography workshops. Each folder contains 
@@ -158,6 +193,7 @@ const Workshops = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

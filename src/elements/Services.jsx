@@ -2,6 +2,10 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "../lib/utils";
 import Footer from "./Footer";
+import SEOHead from "../components/SEOHead";
+import { generatePageMeta } from "../utils/seo";
+import { generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema } from "../utils/schema";
+import { pageConfigs } from "../config/seoConfig";
 
 // AuroraBackground Component
 const AuroraBackground = ({
@@ -45,6 +49,9 @@ const AuroraBackground = ({
 function Services() {
   const [expandedFaq, setExpandedFaq] = useState(null);
 
+  // SEO Configuration
+  const pageMeta = generatePageMeta(pageConfigs.services);
+
   const faqs = [
     {
       q: "Can I rent the studio without a photographer?",
@@ -73,8 +80,40 @@ function Services() {
     }),
   };
 
+  const services = [
+    {
+      type: "Portrait Photography",
+      description: "Professional portrait photography capturing your unique personality and style",
+      priceRange: "$$",
+      areaServed: "Worldwide",
+    },
+    {
+      type: "Event Photography",
+      description: "Comprehensive event coverage from weddings to corporate functions",
+      priceRange: "$$",
+      areaServed: "Worldwide",
+    },
+    {
+      type: "Product Photography",
+      description: "High-quality product photography for e-commerce and marketing",
+      priceRange: "$$",
+      areaServed: "Worldwide",
+    },
+  ];
+
+  const schemas = [
+    ...services.map((service) => generateServiceSchema(service)),
+    generateFAQSchema(faqs.map(f => ({ question: f.q, answer: f.a }))),
+    generateBreadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Services", path: "/services" },
+    ]),
+  ];
+
   return (
-    <div className="min-h-screen bg-black text-white">
+    <>
+      <SEOHead meta={pageMeta} schema={schemas} />
+      <div className="min-h-screen bg-black text-white">
       {/* ===================== Hero with Aurora Background ===================== */}
       <AuroraBackground className="dark bg-black" showRadialGradient={true}>
         <motion.div
@@ -271,6 +310,7 @@ function Services() {
         </div>
       </section>
     </div>
+    </>
   );
 }
 

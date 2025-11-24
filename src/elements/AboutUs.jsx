@@ -1,8 +1,41 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import SEOHead from "../components/SEOHead";
+import { generatePageMeta } from "../utils/seo";
+import { generateLocalBusinessSchema, generateOrganizationSchema, generateBreadcrumbSchema } from "../utils/schema";
+import { pageConfigs } from "../config/seoConfig";
 
 function AboutUs() {
   const [activeSection, setActiveSection] = useState("studio");
+
+  // SEO Configuration
+  const pageMeta = generatePageMeta(pageConfigs.about);
+
+  const businessAddress = {
+    street: "Pixel Studios Address",
+    city: "City Name",
+    region: "State",
+    postal: "123456",
+    country: "India",
+    phone: "+91 9123809082",
+    hours: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        opens: "10:00",
+        closes: "18:00",
+      },
+    ],
+  };
+
+  const schemas = [
+    generateLocalBusinessSchema(businessAddress),
+    generateOrganizationSchema(),
+    generateBreadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "About", path: "/about" },
+    ]),
+  ];
 
   const fadeUp = {
     hidden: { opacity: 0, y: 20 },
@@ -22,7 +55,9 @@ function AboutUs() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <>
+      <SEOHead meta={pageMeta} schema={schemas} />
+      <div className="min-h-screen bg-black text-white">
       {/* Hero Section */}
       <section className="px-8 lg:px-20 pt-32 pb-20">
         <motion.div
@@ -419,6 +454,7 @@ function AboutUs() {
 
       {/* Contact CTA */}
     </div>
+    </>
   );
 }
 

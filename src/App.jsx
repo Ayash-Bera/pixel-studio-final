@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 
 import Navbar from "./elements/Navbar";
 import Landing from "./elements/Landing";
@@ -51,8 +52,9 @@ function App() {
     ).padStart(2, "0")}:${String(f).padStart(2, "0")}`;
 
   return (
-    <Router>
-      <div className="min-h-screen bg-black text-white overflow-x-hidden relative">
+    <HelmetProvider>
+      <Router>
+        <div className="min-h-screen bg-black text-white overflow-x-hidden relative">
         {/* Main Content */}
         <div className="relative z-10">
           <Navbar />
@@ -104,9 +106,10 @@ function App() {
             backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.5'/%3E%3C/svg%3E")`,
           }}
         ></div>
-      </div>
-      <Footer />
-    </Router>
+        </div>
+        <Footer />
+      </Router>
+    </HelmetProvider>
   );
 }
 
