@@ -27,7 +27,7 @@ function Landing() {
   }, []);
 
   return (
-    <BeamsBackground intensity="medium">
+    <BeamsBackground intensity="subtle">
       <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -55,7 +55,10 @@ function Landing() {
               Pixel
             </span>
             <span className="block text-[clamp(4rem,12vw,12rem)] font-black leading-[0.85] text-modera-yellow tracking-tighter">
-              Studios & Academy
+              Photography
+            </span>
+            <span className="block text-[clamp(4rem,12vw,12rem)] font-black leading-[0.85] text-modera-yellow tracking-tighter">
+              Studio & Academy
             </span>
           </h1>
 
