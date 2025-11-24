@@ -18,7 +18,7 @@ const AuroraBackground = ({
   return (
     <div
       className={cn(
-        "transition-bg relative flex h-[100vh] flex-col items-center justify-center bg-zinc-50 text-slate-950 dark:bg-zinc-900",
+        "transition-bg relative flex h-[100vh] flex-col items-center justify-center text-slate-950 dark:text-white",
         className
       )}
       {...props}
@@ -117,7 +117,7 @@ function Services() {
       <EtherealShadow>
       <div className="min-h-screen text-white">
       {/* ===================== Hero with Aurora Background ===================== */}
-      <AuroraBackground className="dark bg-black" showRadialGradient={true}>
+      <AuroraBackground className="dark bg-transparent" showRadialGradient={true}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -256,8 +256,14 @@ function Services() {
       </section>
 
       {/* ===================== FAQ Section ===================== */}
-      <section className="px-8 lg:px-20 py-20 bg-black">
-        <div className="mb-12">
+      <section className="px-8 lg:px-20 py-20">
+        <motion.div
+          className="mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <p className="text-white/60 text-pixel-xs mb-4">▶ FAQ</p>
           <h2 className="text-modera-yellow text-[clamp(2rem,5vw,4rem)] font-bold leading-tight">
             FREQUENTLY
@@ -266,7 +272,7 @@ function Services() {
             <br />
             QUESTIONS
           </h2>
-        </div>
+        </motion.div>
 
         <div className="space-y-4 max-w-3xl text-pixel-sm">
           {faqs.map((faq, index) => {
@@ -274,11 +280,18 @@ function Services() {
             return (
               <motion.div
                 key={index}
-                initial={false}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 animate={{
                   backgroundColor: open
-                    ? "rgba(255,255,255,0.03)"
+                    ? "rgba(255,255,255,0.05)"
                     : "transparent",
+                }}
+                whileHover={{
+                  backgroundColor: "rgba(255,255,255,0.02)",
+                  x: 4,
                 }}
                 className="border-b border-white/10 pb-4"
               >
@@ -287,24 +300,41 @@ function Services() {
                   className="w-full flex items-center justify-between text-left group"
                 >
                   <div className="flex items-center gap-4">
-                    <span className="text-white/40 text-md">{index + 1}.</span>
-                    <span className="text-white/80 text-md">{faq.q}</span>
+                    <motion.span
+                      className="text-white/40 text-md"
+                      animate={{ color: open ? "rgba(255,215,0,0.8)" : "rgba(255,255,255,0.4)" }}
+                    >
+                      {index + 1}.
+                    </motion.span>
+                    <span className="text-white/80 text-md group-hover:text-white transition-colors">{faq.q}</span>
                   </div>
-                  <span className="text-white/40 group-hover:text-white transition-colors">
-                    {open ? "−" : "+"}
-                  </span>
+                  <motion.span
+                    className="text-white/40 group-hover:text-modera-yellow transition-colors text-2xl"
+                    animate={{ rotate: open ? 45 : 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    +
+                  </motion.span>
                 </button>
 
                 <motion.div
                   initial={false}
-                  animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
+                  animate={{
+                    height: open ? "auto" : 0,
+                    opacity: open ? 1 : 0,
+                    marginTop: open ? 16 : 0
+                  }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
                   className="overflow-hidden"
                 >
-                  {open && (
-                    <p className="text-white/50 text-pixel-xs mt-4 ml-12 leading-relaxed poppins-light">
-                      {faq.a}
-                    </p>
-                  )}
+                  <motion.p
+                    className="text-white/50 text-pixel-xs ml-12 leading-relaxed poppins-light"
+                    initial={{ y: -10 }}
+                    animate={{ y: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {faq.a}
+                  </motion.p>
                 </motion.div>
               </motion.div>
             );
