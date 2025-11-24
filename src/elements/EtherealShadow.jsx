@@ -20,7 +20,7 @@ export function EtherealShadow({
     sizing = 'fill',
     color = 'rgba(90, 90, 90, 1)',
     animation = { scale: 100, speed: 90 },
-    noise = { opacity: 1, scale: 1.2 },
+    noise = { opacity: 0, scale: 1.2 },
     className = '',
     children
 }) {

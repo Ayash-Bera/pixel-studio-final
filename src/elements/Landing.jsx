@@ -64,21 +64,21 @@ function Landing() {
           className="flex flex-col"
         >
           <h1 className="mb-8">
-            <span className="block text-[clamp(4rem,12vw,12rem)] font-black leading-[0.85] text-modera-yellow tracking-tighter">
+            <span className="block text-[clamp(3rem,10vw,12rem)] font-black leading-[0.85] text-modera-yellow tracking-tighter">
               Pixel
             </span>
-            <span className="block text-[clamp(4rem,12vw,12rem)] font-black leading-[0.85] text-modera-yellow tracking-tighter">
+            <span className="block text-[clamp(3rem,10vw,12rem)] font-black leading-[0.85] text-modera-yellow tracking-tighter">
               Photography
             </span>
-            <span className="block text-[clamp(4rem,12vw,12rem)] font-black leading-[0.85] text-modera-yellow tracking-tighter">
-              Studio & 
+            <span className="block text-[clamp(3rem,10vw,12rem)] font-black leading-[0.85] text-modera-yellow tracking-tighter">
+              Studio &
             </span>
-            <span className="block text-[clamp(4rem,12vw,12rem)] font-black leading-[0.85] text-modera-yellow tracking-tighter">
+            <span className="block text-[clamp(3rem,10vw,12rem)] font-black leading-[0.85] text-modera-yellow tracking-tighter">
               Academy
             </span>
           </h1>
 
-          <div className="flex gap-4">
+          <div className="flex flex-col sm:flex-row gap-4">
             <GradientButton asChild>
               <a href="https://wa.me/919123809082" target="_blank" rel="noopener noreferrer">Book a Call</a>
             </GradientButton>
