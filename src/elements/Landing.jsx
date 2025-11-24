@@ -1,7 +1,10 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Link } from "react-router-dom";
 import { InfinitePortfolio } from "../elements/infinite";
+import { GradientButton } from "../elements/GradientButton";
+import { BeamsBackground } from "../elements/BeamsBackground";
 import portfolioData from "../data/landing.json";
 
 function Landing() {
@@ -24,101 +27,46 @@ function Landing() {
   }, []);
 
   return (
-    <motion.main
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-      className="relative min-h-screen text-white overflow-hidden"
-    >
-      {/* Lens light effect */}
-      <motion.div
-        className="pointer-events-none fixed w-32 h-32 rounded-full bg-white/10 blur-2xl z-10"
-        animate={{ x: cursorPos.x - 64, y: cursorPos.y - 64 }}
-        transition={{ type: "spring", stiffness: 100, damping: 20 }}
-      />
+    <BeamsBackground intensity="medium">
+      <motion.main
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="relative min-h-screen text-white overflow-hidden"
+      >
+        {/* Lens light effect */}
+        <motion.div
+          className="pointer-events-none fixed w-32 h-32 rounded-full bg-white/10 blur-2xl z-20"
+          animate={{ x: cursorPos.x - 64, y: cursorPos.y - 64 }}
+          transition={{ type: "spring", stiffness: 100, damping: 20 }}
+        />
 
-      {/* Hero Section */}
-      <section className="min-h-screen flex flex-col justify-center px-8 lg:px-20 pt-32 pb-20">
+        {/* Hero Section */}
+        <section className="min-h-screen flex flex-col justify-center px-8 lg:px-20 pt-32 pb-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col lg:flex-row lg:items-start gap-8 lg:gap-20"
+          className="flex flex-col"
         >
-          {/* Left Side - Main Content */}
-          <div className="flex-1">
-            <h1 className="mb-8 lg:mb-14">
-              <span className="block text-[clamp(4rem,12vw,12rem)] font-black leading-[0.85] text-modera-yellow tracking-tighter">
-                Pixel
-              </span>
-              <span className="block text-[clamp(4rem,12vw,12rem)] font-black leading-[0.85] text-modera-yellow tracking-tighter">
-                Studios & Academy 
-              </span>
-            </h1>
+          <h1 className="mb-8">
+            <span className="block text-[clamp(4rem,12vw,12rem)] font-black leading-[0.85] text-modera-yellow tracking-tighter">
+              Pixel
+            </span>
+            <span className="block text-[clamp(4rem,12vw,12rem)] font-black leading-[0.85] text-modera-yellow tracking-tighter">
+              Studios & Academy
+            </span>
+          </h1>
 
-            <div className="max-w-sm">
-              <p className="text-white/90 text-pixel-base lg:text-pixel-xl leading-relaxed font-light">
-                High-end
-                <br />
-                photography studio
-                <br />
-                specializing in
-                <br />
-                interior and outdoor 
-                <br />
-                shoots
-              </p>
-            </div>
+          <div className="flex gap-4">
+            <GradientButton asChild>
+              <a href="https://wa.me/919123809082" target="_blank" rel="noopener noreferrer">Book a Call</a>
+            </GradientButton>
+            <GradientButton variant="variant" asChild>
+              <Link to="/gallery">Peek into our gallery</Link>
+            </GradientButton>
           </div>
-
-          {/* Right Side - Characteristics */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:w-80 pt-8 lg:pt-20"
-          >
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-white/50 text-pixel-xl tracking-wider mb-4">
-                  What We Offer 
-                </h3>
-                <ul className="space-y-3">
-                  {[
-                    "Framing perfection",
-                    "Vision in focus",
-                    "Silent storytelling",
-                    "Crafted by light",
-                    "Shadows and highlights",
-                    "Depth of perception",
-                  ].map((char, i) => (
-                    <motion.li
-                      key={i}
-                      whileHover={{
-                        y: -3,
-                        scale: 1.02,
-                        textShadow: [
-                          "0px 0px 8px rgba(255,215,0,0.6)",
-                          "0px 0px 16px rgba(255,215,0,0.4)",
-                          "0px 0px 24px rgba(255,215,0,0.2)"
-                        ].join(", "),
-                      }}
-                      transition={{ 
-                        type: "tween", 
-                        duration: 0.2,
-                        ease: "easeOut"
-                      }}
-                      className="text-white/80 text-xl cursor-pointer relative z-20 hover:text-white transition-all duration-200"
-                    >
-                      {char}
-                    </motion.li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </motion.div>
         </motion.div>
       </section>
 
@@ -164,6 +112,7 @@ function Landing() {
         </div>
       </section>
     </motion.main>
+    </BeamsBackground>
   );
 }
 
