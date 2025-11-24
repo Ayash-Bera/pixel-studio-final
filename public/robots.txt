@@ -1,0 +1,6 @@
+# Robots.txt for Pixel Studios
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://pixelstudios.com/sitemap.xml

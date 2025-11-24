@@ -58,7 +58,10 @@ function Landing() {
               Photography
             </span>
             <span className="block text-[clamp(4rem,12vw,12rem)] font-black leading-[0.85] text-modera-yellow tracking-tighter">
-              Studio & Academy
+              Studio & 
+            </span>
+            <span className="block text-[clamp(4rem,12vw,12rem)] font-black leading-[0.85] text-modera-yellow tracking-tighter">
+              Academy
             </span>
           </h1>
 
