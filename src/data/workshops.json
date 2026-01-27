@@ -43,5 +43,41 @@
     "coverImage": "https://i.postimg.cc/50tv0jJH/Whats-App-Image-2025-10-28-at-10-50-59-PM-1.jpg",
     "photoCount": 14,
     "location": "Photography Studio"
+  },
+  {
+    "id": "pushkar",
+    "name": "Pushkar",
+    "date": "2025-10-31",
+    "description": "Documentary photography expedition capturing the vibrant culture, spiritual essence and everyday life of Pushkar",
+    "coverImage": "https://i.postimg.cc/L8GyrgL9/1.jpg",
+    "photoCount": 14,
+    "location": "Pushkar, Rajasthan"
+  },
+  {
+    "id": "sand-dunes",
+    "name": "Sand Dunes",
+    "date": "2025-11-05",
+    "description": "Desert photography expedition capturing the majestic sand dunes, golden hour landscapes and the raw beauty of the Thar Desert",
+    "coverImage": "https://i.postimg.cc/Px7N4H0y/1.jpg",
+    "photoCount": 20,
+    "location": "Thar Desert, Rajasthan"
+  },
+  {
+    "id": "jodhpur",
+    "name": "Jodhpur",
+    "date": "2025-11-02",
+    "description": "Street and architectural photography exploring the Blue City, its ancient forts, vibrant markets and the rich heritage of Jodhpur",
+    "coverImage": "https://i.postimg.cc/dQTGxNnm/3.jpg",
+    "photoCount": 19,
+    "location": "Jodhpur, Rajasthan"
+  },
+  {
+    "id": "jaisalmer",
+    "name": "Jaisalmer",
+    "date": "2025-11-04",
+    "description": "Photography expedition through the Golden City, capturing the ornate havelis, ancient fort architecture and the timeless desert charm of Jaisalmer",
+    "coverImage": "https://i.postimg.cc/wB71s3Gc/1.jpg",
+    "photoCount": 16,
+    "location": "Jaisalmer, Rajasthan"
   }
 ]
