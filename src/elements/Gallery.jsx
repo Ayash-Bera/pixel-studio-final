@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useSearchParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import images from "../data/gallery.json";
 import SEOHead from "../components/SEOHead";
@@ -8,9 +9,32 @@ import { pageConfigs } from "../config/seoConfig";
 import { EtherealShadow } from "./EtherealShadow";
 
 const Gallery = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [loadedImages, setLoadedImages] = useState({});
   const [selectedImage, setSelectedImage] = useState(null);
   const [filter, setFilter] = useState("all");
+
+  // Handle URL-based image selection
+  const selectImageWithUrl = (img, index) => {
+    setSelectedImage(img);
+    setSearchParams({ photo: index.toString() });
+  };
+
+  const closeImageWithUrl = () => {
+    setSelectedImage(null);
+    setSearchParams({});
+  };
+
+  // Check URL for photo param on mount
+  useEffect(() => {
+    const photoParam = searchParams.get("photo");
+    if (photoParam !== null) {
+      const photoIndex = parseInt(photoParam, 10);
+      if (!isNaN(photoIndex) && photoIndex >= 0 && photoIndex < images.length) {
+        setSelectedImage(images[photoIndex]);
+      }
+    }
+  }, []);
 
   // Get unique photographers for filter
   const photographers = ["all", ...new Set(images.map(img => img.photographer))];
@@ -82,21 +106,21 @@ const Gallery = () => {
         </motion.div>
 
         {/* Masonry Grid */}
-        <MasonryGrid 
+        <MasonryGrid
           images={filteredImages}
           loadedImages={loadedImages}
           setLoadedImages={setLoadedImages}
-          setSelectedImage={setSelectedImage}
+          setSelectedImage={selectImageWithUrl}
         />
 
         {/* Lightbox Modal */}
         <AnimatePresence>
           {selectedImage && (
-            <Lightbox 
-              image={selectedImage} 
-              onClose={() => setSelectedImage(null)}
+            <Lightbox
+              image={selectedImage}
+              onClose={closeImageWithUrl}
               images={filteredImages}
-              setSelectedImage={setSelectedImage}
+              setSelectedImage={selectImageWithUrl}
             />
           )}
         </AnimatePresence>
@@ -158,7 +182,6 @@ const MasonryGrid = ({ images, loadedImages, setLoadedImages, setSelectedImage }
             <ImageCard
               key={img.src}
               img={img}
-              index={img.index}
               delay={colIdx * 0.1 + imgIdx * 0.05}
               onLoad={(dimensions) => {
                 setLoadedImages(prev => ({
@@ -166,7 +189,7 @@ const MasonryGrid = ({ images, loadedImages, setLoadedImages, setSelectedImage }
                   [img.src]: dimensions
                 }));
               }}
-              onClick={() => setSelectedImage(img)}
+              onClick={() => setSelectedImage(img, img.index)}
               isPortrait={loadedImages[img.src]?.width < loadedImages[img.src]?.height}
             />
           ))}
@@ -177,7 +200,7 @@ const MasonryGrid = ({ images, loadedImages, setLoadedImages, setSelectedImage }
 };
 
 // Individual Image Card
-const ImageCard = ({ img, index, delay, onLoad, onClick, isPortrait }) => {
+const ImageCard = ({ img, delay, onLoad, onClick, isPortrait }) => {
   const [loaded, setLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
   const imgRef = useRef(null);
@@ -271,16 +294,28 @@ const ImageCard = ({ img, index, delay, onLoad, onClick, isPortrait }) => {
 
 // Lightbox Component
 const Lightbox = ({ image, onClose, images, setSelectedImage }) => {
+  const [copied, setCopied] = useState(false);
   const currentIndex = images.findIndex(img => img.src === image.src);
 
   const goToPrevious = () => {
     const prevIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
-    setSelectedImage(images[prevIndex]);
+    setSelectedImage(images[prevIndex], prevIndex);
   };
 
   const goToNext = () => {
     const nextIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
-    setSelectedImage(images[nextIndex]);
+    setSelectedImage(images[nextIndex], nextIndex);
+  };
+
+  const handleShare = async () => {
+    const url = window.location.href;
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy URL:", err);
+    }
   };
 
   useEffect(() => {
@@ -318,10 +353,28 @@ const Lightbox = ({ image, onClose, images, setSelectedImage }) => {
         className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none"
       >
         <div className="relative max-w-7xl max-h-[90vh] pointer-events-auto">
+          {/* Share Button */}
+          <button
+            onClick={handleShare}
+            className="absolute top-4 right-16 z-10 w-10 h-10 flex items-center justify-center
+                       bg-black/60 hover:bg-modera-yellow hover:text-black text-white transition-colors"
+            title="Copy link"
+          >
+            {copied ? (
+              <span className="text-pixel-xs">OK</span>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+                <polyline points="16 6 12 2 8 6" />
+                <line x1="12" y1="2" x2="12" y2="15" />
+              </svg>
+            )}
+          </button>
+
           {/* Close Button */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center 
+            className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center
                        bg-black/60 hover:bg-black transition-colors"
           >
             <span className="text-white text-2xl">×</span>

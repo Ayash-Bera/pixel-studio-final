@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link, useNavigate, useSearchParams } from "react-router-dom";
 import { ArrowLeftIcon, ArrowRightIcon, XMarkIcon, CalendarIcon, UsersIcon, MapPinIcon } from "@heroicons/react/24/outline";
 import workshopsData from "../data/workshops.json";
 import SEOHead from "../components/SEOHead";
@@ -11,6 +11,7 @@ import { pageConfigs } from "../config/seoConfig";
 const WorkshopDetail = () => {
   const { workshopId } = useParams();
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [workshop, setWorkshop] = useState(null);
   const [photos, setPhotos] = useState([]);
   const [loadedImages, setLoadedImages] = useState({});
@@ -18,6 +19,29 @@ const WorkshopDetail = () => {
   const [filter, setFilter] = useState("all");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [copied, setCopied] = useState(false);
+
+  // Handle URL-based image selection
+  const selectImageWithUrl = (img, index) => {
+    setSelectedImage(img);
+    setSearchParams({ photo: index.toString() });
+  };
+
+  const closeImageWithUrl = () => {
+    setSelectedImage(null);
+    setSearchParams({});
+  };
+
+  const handleShare = async () => {
+    const url = window.location.href;
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy URL:", err);
+    }
+  };
 
   // Find current workshop and navigation
   const currentIndex = workshopsData.findIndex(w => w.id === workshopId);
@@ -55,21 +79,33 @@ const WorkshopDetail = () => {
     loadWorkshopData();
   }, [workshopId]);
 
+  // Check URL for photo param when photos are loaded
+  useEffect(() => {
+    if (photos.length === 0) return;
+    const photoParam = searchParams.get("photo");
+    if (photoParam !== null) {
+      const photoIndex = parseInt(photoParam, 10);
+      if (!isNaN(photoIndex) && photoIndex >= 0 && photoIndex < photos.length) {
+        setSelectedImage(photos[photoIndex]);
+      }
+    }
+  }, [photos]);
+
   // Keyboard navigation for lightbox
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (!selectedImage) return;
-      
+
       if (e.key === 'Escape') {
-        setSelectedImage(null);
+        closeImageWithUrl();
       } else if (e.key === 'ArrowLeft') {
         const currentIndex = photos.findIndex(p => p.src === selectedImage.src);
         const prevIndex = currentIndex > 0 ? currentIndex - 1 : photos.length - 1;
-        setSelectedImage(photos[prevIndex]);
+        selectImageWithUrl(photos[prevIndex], prevIndex);
       } else if (e.key === 'ArrowRight') {
         const currentIndex = photos.findIndex(p => p.src === selectedImage.src);
         const nextIndex = currentIndex < photos.length - 1 ? currentIndex + 1 : 0;
-        setSelectedImage(photos[nextIndex]);
+        selectImageWithUrl(photos[nextIndex], nextIndex);
       }
     };
 
@@ -284,11 +320,11 @@ const WorkshopDetail = () => {
         {photos.length > 0 ? (
           <>
             {/* Photo Grid */}
-            <MasonryGrid 
+            <MasonryGrid
               photos={filteredPhotos}
               loadedImages={loadedImages}
               setLoadedImages={setLoadedImages}
-              setSelectedImage={setSelectedImage}
+              setSelectedImage={selectImageWithUrl}
             />
           </>
         ) : (
@@ -319,7 +355,7 @@ const WorkshopDetail = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 bg-black/99 flex items-center justify-center"
-            onClick={() => setSelectedImage(null)}
+            onClick={closeImageWithUrl}
           >
             {/* Deep Background Overlay */}
             <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900/50 to-black opacity-95" />
@@ -365,7 +401,7 @@ const WorkshopDetail = () => {
                   e.stopPropagation();
                   const currentIndex = photos.findIndex(p => p.src === selectedImage.src);
                   const prevIndex = currentIndex > 0 ? currentIndex - 1 : photos.length - 1;
-                  setSelectedImage(photos[prevIndex]);
+                  selectImageWithUrl(photos[prevIndex], prevIndex);
                 }}
                 className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/90 hover:bg-black/95 text-white p-4 rounded-full border border-modera-yellow/40 hover:border-modera-yellow/80 transition-all duration-300 backdrop-blur-lg shadow-2xl hover:shadow-modera-yellow/20"
               >
@@ -379,7 +415,7 @@ const WorkshopDetail = () => {
                   e.stopPropagation();
                   const currentIndex = photos.findIndex(p => p.src === selectedImage.src);
                   const nextIndex = currentIndex < photos.length - 1 ? currentIndex + 1 : 0;
-                  setSelectedImage(photos[nextIndex]);
+                  selectImageWithUrl(photos[nextIndex], nextIndex);
                 }}
                 className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/90 hover:bg-black/95 text-white p-4 rounded-full border border-modera-yellow/40 hover:border-modera-yellow/80 transition-all duration-300 backdrop-blur-lg shadow-2xl hover:shadow-modera-yellow/20"
               >
@@ -388,9 +424,27 @@ const WorkshopDetail = () => {
                 </svg>
               </button>
 
+              {/* Share Button */}
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleShare();
+                }}
+                className="absolute top-4 right-20 bg-black/90 hover:bg-black/95 text-white/80 hover:text-white p-3 rounded-full border border-modera-yellow/40 hover:border-modera-yellow/80 transition-all duration-300 backdrop-blur-lg shadow-2xl hover:shadow-modera-yellow/20"
+                title="Copy link"
+              >
+                {copied ? (
+                  <span className="text-pixel-xs text-modera-yellow">OK</span>
+                ) : (
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13" />
+                  </svg>
+                )}
+              </button>
+
               {/* Enhanced Close Button */}
               <button
-                onClick={() => setSelectedImage(null)}
+                onClick={closeImageWithUrl}
                 className="absolute top-4 right-4 bg-black/90 hover:bg-black/95 text-white/80 hover:text-white p-3 rounded-full border border-modera-yellow/40 hover:border-modera-yellow/80 transition-all duration-300 backdrop-blur-lg group shadow-2xl hover:shadow-modera-yellow/20"
               >
                 <XMarkIcon className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" />
@@ -508,7 +562,7 @@ const MasonryGrid = ({ photos, loadedImages, setLoadedImages, setSelectedImage }
                   [photo.src]: dimensions
                 }));
               }}
-              onClick={() => setSelectedImage(photo)}
+              onClick={() => setSelectedImage(photo, photo.index)}
               isPortrait={loadedImages[photo.src]?.width < loadedImages[photo.src]?.height}
             />
           ))}
