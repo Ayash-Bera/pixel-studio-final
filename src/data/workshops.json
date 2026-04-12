@@ -79,5 +79,14 @@
     "coverImage": "https://i.postimg.cc/wB71s3Gc/1.jpg",
     "photoCount": 16,
     "location": "Jaisalmer, Rajasthan"
+  },
+  {
+    "id": "100th-workshop-droplets",
+    "name": "100th Workshop - Droplets",
+    "date": "2026-04-11",
+    "description": "Creative droplets photography workshop focused on timing, lighting, and high-speed captures",
+    "coverImage": "https://i.postimg.cc/pLqtnQCf/IMG-20260412-WA0009.jpg",
+    "photoCount": 5,
+    "location": "Photography Studio"
   }
 ]
